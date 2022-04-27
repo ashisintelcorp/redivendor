@@ -1,5 +1,5 @@
 import '../styles/globals.scss'
-import '../styles/t-shirt.scss'
+import '../styles/home.scss'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -11,13 +11,15 @@ const persistor = persistStore(store, {}, function () {
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const AnyComponent = Component as any;
   return <>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <AnyComponent {...pageProps} />;
+      {/* <PersistGate loading={null} persistor={persistor}>
         {() => (
           <Component {...pageProps} />
         )}
-      </PersistGate>
+      </PersistGate> */}
     </Provider>
   </>
 }

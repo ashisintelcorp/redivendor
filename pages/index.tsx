@@ -1,20 +1,18 @@
 import type { NextPage } from 'next'
 
-const DesignCard: React.FC = () => {
-  return <div className='kit-card'>
-    <div className="kit-card-header">
-      <div className="title">Select Design</div>
-    </div>
-    <div className="kit-card-body">
-      BODY
-    </div>
-  </div>
-}
-
 const Home: NextPage = () => {
   return (
     <>
-      <div className="main-wrapper">
+      <h1>Hello</h1>
+      <div className="main-container">
+        <header>
+
+        </header>
+        <section className="search">
+
+        </section>
+      </div>
+      {/* <div className="main-wrapper">
         <div className="design-wrapper">
           LEFT
         </div>
@@ -22,7 +20,7 @@ const Home: NextPage = () => {
           <div className="app-title">3D Kit Builder</div>
           <DesignCard />
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
