@@ -12,8 +12,9 @@ while (minGap * i < mins) {
 
     if (a == 'PM' && timeX >= 13) timeX = timeX - 12
     timeX = Math.floor(timeX)
-
-    arr.push(timeX + ':' + timeY.toFixed(2) + ' ' + a)
+    timeX = timeX === 0 ? 12 : timeX
+    timeY = timeY.toString().length === 1 ? '0' + timeY : timeY
+    arr.push(timeX + ':' + timeY + ' ' + a)
     i++
 }
 

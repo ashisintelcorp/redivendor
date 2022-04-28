@@ -10,18 +10,12 @@ const persistor = persistStore(store, {}, function () {
   persistor.persist()
 })
 
-function MyApp({ Component, pageProps }: AppProps) {
-  const AnyComponent = Component as any;
-  return <>
-    <Provider store={store}>
-      <AnyComponent {...pageProps} />;
-      {/* <PersistGate loading={null} persistor={persistor}>
-        {() => (
-          <Component {...pageProps} />
-        )}
-      </PersistGate> */}
-    </Provider>
-  </>
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      {() => (
+        <Component {...pageProps} />
+      )}
+    </PersistGate>
+  </Provider>
 }
-
-export default MyApp
