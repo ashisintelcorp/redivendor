@@ -148,7 +148,7 @@
       .title {
         color: #ffcd00;
         font-size: 22px;
-        letter-spacing:1.5px;
+        letter-spacing: 1.5px;
       }
       .subtitle {
         color: #ccc;
@@ -166,6 +166,42 @@
       color: #fff;
       border: 0;
       height: 42px;
+    }
+  }
+}
+
+.contact-page {
+  width: calc(100% - 200px);
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 1px 4px 2px #000;
+  h3 {
+  }
+  .contact-info {
+    background: #fff;
+    width: 50%;
+    padding: 40px;
+  }
+  .contact-form {
+    width: 50%;
+    padding: 40px;
+    background: #003144b0;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 30px;
+      height: 30px;
+      background: #003144b0;
+    }
+    label {
+    }
+    input {
+    }
+    textarea {
     }
   }
 }

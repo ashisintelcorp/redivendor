@@ -14,7 +14,7 @@ const Header = () => {
                     <li><Link href={'/'}>Vehicles</Link></li>
                     <li><Link href={'/'}>Gallery</Link></li>
                     <li><Link href={'/'}>FAQs</Link></li>
-                    <li><Link href={'/'}>Contact</Link></li>
+                    <li><Link href={'/contact'}>Contact</Link></li>
                 </ul>
                 <ul className="btn-nav">
                     <li><Link href={'/login'} passHref>
