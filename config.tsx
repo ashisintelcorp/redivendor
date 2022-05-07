@@ -1,0 +1,1 @@
+export const baseUrl = process.env.NODE_ENV == "production" ? "https://www.google.com" : "http://localhost:3027";
