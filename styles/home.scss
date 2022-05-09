@@ -210,3 +210,45 @@
     }
   }
 }
+footer {
+  padding: 50px 0 0 50px;
+  background: #ffeace;
+  .logo {
+    max-width: 100%;
+  }
+  .phone-no {
+    font-size: 22px;
+  }
+  a {
+    &:hover {
+      color: #ffbf00;
+    }
+  }
+  ul.links {
+    list-style: none;
+    li {
+      a {
+        display: block;
+        padding: 4px 0;
+        position: relative;
+        padding-left: 20px;
+        &::before {
+          position: absolute;
+          content: "❯";
+          left: 0;
+          margin-right: 20px;
+          top: auto;
+          color: #ffbf00;
+        }
+      }
+    }
+  }
+  .footer-border {
+    background: #ffdcac;
+    margin: 0 10%;
+    height: 2px;
+  }
+  .app-icon {
+    width: calc(50% - 5px);
+  }
+}
