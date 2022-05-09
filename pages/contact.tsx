@@ -15,16 +15,16 @@ export const ContactPage: React.FC = () => {
                 <h3>Let's get in touch</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum adipisci recusandae praesentium dicta!</p>
         <div className="info">
-         <div className="information">
-         <img src="images/icons/location.png"  width={"50px"}className="icon" alt="" />
+         <div className="d-flex">
+         <img src="images/icons/location.png"  height={"26px"} className="mr-2" alt="" />
              <p>92 Cherry Drive Uniondale, NY 11553</p>
          </div>
-         <div className="information">
-              <img src="images/icons/email.png"  width={"50px"} className="icon" alt="" />
+         <div className="d-flex">
+              <img src="images/icons/email.png"  height={"26px"} className="mr-2" alt="" />
               <p>lorem@ipsum.com</p>
             </div>
-            <div className="information">
-            <img src="images/icons/phone.png" width={"50px"} className="icon" alt="" />
+            <div className="d-flex">
+            <img src="images/icons/phone.png" height={"26px"} className="mr-2" alt="" />
               <p>123-456-789</p>
             </div>
         </div>
@@ -45,7 +45,7 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Message</label>
-                    <textarea className="form-control" placeholder="text" />
+                    <textarea className="form-control" placeholder="text here" />
                 </div>
             </form>
         </div>
