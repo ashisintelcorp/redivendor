@@ -1,5 +1,7 @@
 import MainLayout from 'components/frontend/MainLayout'
+import { appName } from 'app-config'
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
 import { RiLock2Fill, RiSearch2Fill } from 'react-icons/ri'
 import Header from '../components/frontend/Header'
@@ -7,6 +9,9 @@ import Header from '../components/frontend/Header'
 const Home: NextPage = () => {
   return (
     <MainLayout>
+      <Head>
+        <title>{appName}</title>
+      </Head>
       <div className="search-banner">
         <div className="search-box">
           <form className="dark-form">

@@ -1,11 +1,15 @@
 import Header from "components/frontend/Header"
 import MainLayout from "components/frontend/MainLayout"
+import { appName } from "app-config"
+import Head from "next/head"
 import Link from "next/link"
-
 
 export const ContactPage: React.FC = () => {
 
     return <MainLayout>
+        <Head>
+            <title>Contact Us - {appName}</title>
+        </Head>
         <div className="contact-page">
             <div className="contact-info">
                 <h3>Let's get in touch</h3>

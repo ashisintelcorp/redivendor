@@ -188,18 +188,23 @@
   .contact-form {
     width: 50%;
     padding: 40px;
-    background: #003144b0;
+    background: rgb(0, 49, 68);
     position: relative;
     &::before {
       position: absolute;
       content: "";
       width: 30px;
       height: 30px;
-      background: #003144b0;
+      background: rgb(0, 49, 68);
+      top: 41px;
+      left: -15px;
+      transform: rotate(45deg);
     }
     label {
     }
     input {
+      border-radius: 20px;
+      height: 42px;
     }
     textarea {
     }
