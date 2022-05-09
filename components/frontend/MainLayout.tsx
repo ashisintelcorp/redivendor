@@ -1,5 +1,6 @@
 import Header from "components/frontend/Header"
 import Link from "next/link"
+import Footer from "./Footer";
 
 
 export const MainLayout: React.FC<{ children: React.ReactNode; }> = ({ children }) => {
@@ -12,6 +13,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode; }> = ({ children 
                 {children}
             </div>
         </div>
+        <Footer />
     </>
 
 }

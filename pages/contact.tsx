@@ -14,21 +14,21 @@ export const ContactPage: React.FC = () => {
             <div className="contact-info">
                 <h3>Let's get in touch</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum adipisci recusandae praesentium dicta!</p>
-        <div className="info">
-         <div className="d-flex">
-         <img src="images/icons/location.png"  height={"26px"} className="mr-2" alt="" />
-             <p>92 Cherry Drive Uniondale, NY 11553</p>
-         </div>
-         <div className="d-flex">
-              <img src="images/icons/email.png"  height={"26px"} className="mr-2" alt="" />
-              <p>lorem@ipsum.com</p>
+                <div className="info">
+                    <div className="d-flex">
+                        <img height={26} src="images/icons/location.png" className="mr-2" alt="" />
+                        <p>92 Cherry Drive Uniondale, NY 11553</p>
+                    </div>
+                    <div className="d-flex">
+                        <img height={26} src="images/icons/email.png" className="mr-2" alt="" />
+                        <p>lorem@ipsum.com</p>
+                    </div>
+                    <div className="d-flex">
+                        <img height={26} src="images/icons/phone.png" className="mr-2" alt="" />
+                        <p>123-456-789</p>
+                    </div>
+                </div>
             </div>
-            <div className="d-flex">
-            <img src="images/icons/phone.png" height={"26px"} className="mr-2" alt="" />
-              <p>123-456-789</p>
-            </div>
-        </div>
-        </div>
             <form className="contact-form text-white">
                 <h3>Contact us</h3>
                 <div className="form-group">
@@ -45,8 +45,9 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Message</label>
-                    <textarea className="form-control" placeholder="text here" />
+                    <textarea className="form-control" placeholder="Enter your message" />
                 </div>
+                <button type="button" className="btn btn-warning">SEND MESSAGE</button>
             </form>
         </div>
     </MainLayout>
