@@ -14,24 +14,38 @@ export const ContactPage: React.FC = () => {
             <div className="contact-info">
                 <h3>Let's get in touch</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum adipisci recusandae praesentium dicta!</p>
+        <div className="info">
+         <div className="information">
+         <img src="images/icons/location.png"  width={"50px"}className="icon" alt="" />
+             <p>92 Cherry Drive Uniondale, NY 11553</p>
+         </div>
+         <div className="information">
+              <img src="images/icons/email.png"  width={"50px"} className="icon" alt="" />
+              <p>lorem@ipsum.com</p>
             </div>
+            <div className="information">
+            <img src="images/icons/phone.png" width={"50px"} className="icon" alt="" />
+              <p>123-456-789</p>
+            </div>
+        </div>
+        </div>
             <form className="contact-form text-white">
                 <h3>Contact us</h3>
                 <div className="form-group">
                     <label htmlFor="">Full Name</label>
-                    <input type="text" className="form-control" placeholder="Airport or Anywhere" />
+                    <input type="text" className="form-control" placeholder="Enter your Name" />
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Mobile No.</label>
-                    <input type="text" className="form-control" placeholder="Airport or Anywhere" />
+                    <input type="text" className="form-control" placeholder="Enter your mobile number" />
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Email ID</label>
-                    <input type="text" className="form-control" placeholder="Airport or Anywhere" />
+                    <input type="text" className="form-control" placeholder="Enter your e-mail" />
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Message</label>
-                    <textarea className="form-control" placeholder="Airport or Anywhere" />
+                    <textarea className="form-control" placeholder="text" />
                 </div>
             </form>
         </div>
