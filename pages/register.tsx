@@ -22,24 +22,37 @@ export const Register: React.FC = () => {
                             </div>
                         </div>
                         <div className="dark-form-fields p-3">
+                        <div className="form-group mb-3">
+                                <label htmlFor="">First Name</label>
+                                <input type="text" className="form-control" placeholder="Enter your Firstname" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="">Last Name</label>
+                                <input type="text" className="form-control" placeholder="Enter your Lastname" />
+                            </div>
+
                             <div className="form-group">
                                 <label htmlFor="">E-mail</label>
                                 <input type="email" className="form-control" placeholder="Enter your e-mail" />
                             </div>
-                            </div>
-                        <div className="dark-form-fields p-3">
+                            
                             <div className="form-group">
                                 <label htmlFor="">Mobile Number</label>
                                 <input type="text" className="form-control" placeholder="Enter mobile number" />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="">Password</label>
-                                <input type="password" className="form-control" placeholder="Enter password" />
+                                <input type="password" className="form-control" placeholder="Enter your password" />
                             </div>
-                        </div>
+                            <div className="form-group">
+                                <label htmlFor="">Confirm Password</label>
+                                <input type="password" className="form-control" placeholder="Confirm password" />
+                            </div>
+                            </div>
+                    
                         <div className="bg-white d-flex align-items-center justify-content-between p-3">
                            {/*<Link href='/forgot-password' passHref ><a className="text-danger">Forgot password?</a></Link>*/}
-                            <button className="btn btn-primary text-uppercase py-2 px-5">Register</button>
+                            <button className="btn btn-warning text-uppercase py-2 px-5">Register</button>
                         </div>
                     </form>
                     {/*<Link href='/register' passHref ><a className="text-white text-center d-block mt-4">Don't have an account? Register now!</a></Link>*/}
