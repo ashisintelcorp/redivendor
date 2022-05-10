@@ -9,6 +9,12 @@
   padding: 30px 0;
   &.inner-page {
     // min-height: 300px;
+    .page-title {
+      color: #eee;
+      letter-spacing: 2.5px;
+      margin-top: 40px;
+      padding: 60px;
+    }
   }
   .dark-bg-overlay {
     position: absolute;
@@ -21,7 +27,6 @@
   }
   header {
     background: #fff;
-
     border-radius: 5px;
     .nav-container {
       display: flex;
@@ -174,16 +179,27 @@
   width: calc(100% - 200px);
   display: flex;
   justify-content: space-between;
-  margin: 30px auto;
+  margin: 70px auto;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 1px 1px 4px 2px #000;
-  h3 {
-  }
+  box-shadow: 2px 2px 4px 2px #e3e3e3;
+  position: relative;
   .contact-info {
     background: #fff;
     width: 50%;
     padding: 40px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border: 22px solid #1abc9c;
+      border-radius: 50%;
+      bottom: -103px;
+      right: 50px;
+      opacity: 0.1;
+    }
   }
 
   .contact-form {
@@ -255,5 +271,26 @@ footer {
   }
   .app-icon {
     width: calc(50% - 5px);
+  }
+}
+
+.big-circle {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #22dbb6, #1abc9c);
+  bottom: 50%;
+  right: 50%;
+  transform: translate(-40%, 38%);
+  &::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background-color: #fafafa;
+    border-radius: 50%;
+    top: calc(50% - 180px);
+    left: calc(50% - 180px);
   }
 }

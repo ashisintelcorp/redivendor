@@ -8,7 +8,7 @@ import Header from '../components/frontend/Header'
 
 const Home: NextPage = () => {
   return (
-    <MainLayout>
+    <MainLayout innerPage={false}>
       <Head>
         <title>{appName}</title>
       </Head>

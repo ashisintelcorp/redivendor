@@ -10,45 +10,50 @@ export const ContactPage: React.FC = () => {
         <Head>
             <title>Contact Us - {appName}</title>
         </Head>
-        <div className="contact-page">
-            <div className="contact-info">
-                <h3>Let's get in touch</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum adipisci recusandae praesentium dicta!</p>
-                <div className="info">
-                    <div className="d-flex">
-                        <img height={26} src="images/icons/location.png" className="mr-2" alt="" />
-                        <p>92 Cherry Drive Uniondale, NY 11553</p>
+        <div className="position-relative">
+            <div className="big-circle"></div>
+            <div className="container">
+                <div className="contact-page">
+                    <div className="contact-info">
+                        <h3>Let's get in touch</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum adipisci recusandae praesentium dicta!</p>
+                        <div className="info">
+                            <div className="d-flex">
+                                <img height={26} src="images/icons/location.png" className="mr-2" alt="" />
+                                <p>92 Cherry Drive Uniondale, NY 11553</p>
+                            </div>
+                            <div className="d-flex">
+                                <img height={26} src="images/icons/email.png" className="mr-2" alt="" />
+                                <p>lorem@ipsum.com</p>
+                            </div>
+                            <div className="d-flex">
+                                <img height={26} src="images/icons/phone.png" className="mr-2" alt="" />
+                                <p>123-456-789</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="d-flex">
-                        <img height={26} src="images/icons/email.png" className="mr-2" alt="" />
-                        <p>lorem@ipsum.com</p>
-                    </div>
-                    <div className="d-flex">
-                        <img height={26} src="images/icons/phone.png" className="mr-2" alt="" />
-                        <p>123-456-789</p>
-                    </div>
+                    <form className="contact-form text-white">
+                        <h3>Contact us</h3>
+                        <div className="form-group">
+                            <label htmlFor="">Full Name</label>
+                            <input type="text" className="form-control" placeholder="Enter your Name" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="">Mobile No.</label>
+                            <input type="text" className="form-control" placeholder="Enter your mobile number" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="">Email ID</label>
+                            <input type="text" className="form-control" placeholder="Enter your e-mail" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="">Message</label>
+                            <textarea className="form-control" placeholder="Enter your message" />
+                        </div>
+                        <button type="button" className="btn btn-warning">SEND MESSAGE</button>
+                    </form>
                 </div>
             </div>
-            <form className="contact-form text-white">
-                <h3>Contact us</h3>
-                <div className="form-group">
-                    <label htmlFor="">Full Name</label>
-                    <input type="text" className="form-control" placeholder="Enter your Name" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="">Mobile No.</label>
-                    <input type="text" className="form-control" placeholder="Enter your mobile number" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="">Email ID</label>
-                    <input type="text" className="form-control" placeholder="Enter your e-mail" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="">Message</label>
-                    <textarea className="form-control" placeholder="Enter your message" />
-                </div>
-                <button type="button" className="btn btn-warning">SEND MESSAGE</button>
-            </form>
         </div>
     </MainLayout>
 
