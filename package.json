@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@devexperts/remote-data-ts": "^2.1.1",
     "@reduxjs/toolkit": "^1.8.1",
     "axios": "^0.27.2",
     "bootstrap": "^4.6.0",
@@ -16,12 +17,17 @@
     "date-and-time": "^2.3.1",
     "next": "12.1.5",
     "react": "18.1.0",
+    "react-avatar": "^4.1.0",
+    "react-bootstrap": "^2.3.1",
     "react-dom": "18.1.0",
+    "react-hook-form": "^7.31.1",
     "react-icons": "^4.3.1",
     "react-redux": "^8.0.1",
+    "react-toastify": "^9.0.1",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
-    "serverless-mysql": "^1.5.4"
+    "serverless-mysql": "^1.5.4",
+    "styled-jsx": "^5.0.2"
   },
   "devDependencies": {
     "@types/node": "17.0.29",

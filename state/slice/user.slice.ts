@@ -8,13 +8,13 @@ interface UserInfo {
   vchUserEmail: string;
 }
 interface UserState {
-  info: UserInfo;
   accessToken: string;
+  info: UserInfo | null;
 }
 
 const initialState: UserState = {
-  info: { vchUserId: "", vchUserMob: "", vchUserName: "", vchUserEmail: "" },
-  accessToken: "",
+  accessToken: '',
+  info: null,
 };
 
 const slice = createSlice({
@@ -22,17 +22,14 @@ const slice = createSlice({
   initialState,
   reducers: {
     initializeApp: () => initialState,
-    setUserInfo: (state, { payload }: PayloadAction<UserInfo>) => {
+    setUserInfo: (state: UserState, { payload }: PayloadAction<UserInfo>) => {
       state.info = { ...state.info, ...payload };
     },
-    setAccessToken: (
-      state,
-      { payload }: PayloadAction<{ accessToken: string }>
-    ) => {
-      state.accessToken = payload.accessToken;
+    setAccessToken: (state: UserState, { payload }: PayloadAction<string>) => {
+      state.accessToken = payload
     },
-    logout: (state) => {
-      state.info = initialState.info;
+    logout: (state: UserState) => {
+      state = { accessToken: '', info: null }
     },
   },
 });
@@ -40,6 +37,5 @@ const slice = createSlice({
 export const selectUserInfo = (state: State) => state.user.info;
 export const selectAccessToken = (state: State) => state.user.accessToken;
 
-export const { initializeApp, setUserInfo, logout, setAccessToken } =
-  slice.actions;
+export const { initializeApp, setUserInfo, setAccessToken, logout } = slice.actions;
 export default slice.reducer;

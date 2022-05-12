@@ -1,0 +1,293 @@
+.portal-wrapper {
+  a {
+    text-decoration: none;
+  }
+  /* font-family: "Lato", sans-serif; */
+  font-size: 0.9375rem;
+  color: #1f1f1f;
+  background-color: #f7f7f7;
+  min-height: 100%;
+  // overflow-x: hidden;
+  .sb-avatar--src {
+    vertical-align: inherit !important;
+  }
+  .header {
+    background: #fff;
+    border-bottom: 1px solid #ededed;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    height: 60px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1002;
+    .header-left {
+      float: left;
+      height: 60px;
+      padding: 0 20px;
+      position: relative;
+      text-align: center;
+      width: 230px;
+      z-index: 1;
+      transition: all 0.2s ease-in-out;
+      .logo {
+        display: inline-block;
+        line-height: 60px;
+        img {
+          max-width: 100%;
+          height: auto;
+          max-height: 45px;
+        }
+      }
+    }
+    .header-right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      .left-menu {
+        a {
+          &:last-of-type {
+            border: 0;
+          }
+          &.active {
+            color: #d7182f;
+          }
+          &:hover {
+            color: #d7182f;
+          }
+          padding: 0 20px;
+          border-right: 1px solid #e6e6e6;
+        }
+      }
+      .right-menu {
+        float: right;
+        margin: 0;
+        position: relative;
+        z-index: 99;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        ul.box {
+          list-style: none;
+          li {
+            font-size: 14px;
+            padding: 2px 0px;
+          }
+        }
+        .nav-item,
+        .dropdown-toggle {
+          color: #333;
+          font-size: 15px;
+          display: flex;
+          align-items: center;
+          padding: 0 15px;
+          height: 60px;
+        }
+      }
+    }
+  }
+  .page-wrapper {
+    left: 0;
+    margin-left: 230px;
+    padding-top: 60px;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    min-height: 100vh;
+    .content {
+      padding: 30px;
+    }
+  }
+  .sidebar {
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    bottom: 0;
+    left: 0;
+    margin-top: 0;
+    position: fixed;
+    top: 60px;
+    transition: all 0.2s ease-in-out 0s;
+    width: 230px;
+    z-index: 1001;
+    overflow: hidden;
+    .slimScrollDiv {
+      position: absolute;
+      width: calc(100% + 20px);
+      overflow-y: scroll;
+      height: 100%;
+      bottom: 40px;
+      left: 0;
+      padding-top: 40px;
+      .sidebar-inner {
+        transition: all 0.2s ease-in-out 0s;
+        width: 100%;
+        .sidebar-menu {
+          padding: 10px 0;
+          ul {
+            font-size: 15px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            li {
+              position: relative;
+              .menu-link {
+                padding: 8px 15px 8px 20px;
+                align-items: center;
+                display: flex;
+                justify-content: flex-start;
+                position: relative;
+                transition: all 0.2s ease-in-out 0s;
+                color: #333;
+                font-size: 16px;
+                height: auto;
+                cursor: pointer;
+                &.active {
+                  background-color: #ffebda;
+                }
+                &:hover {
+                  background-color: #ffebda;
+                }
+                .icon {
+                  svg {
+                    display: inline-block;
+                    font-size: 24px;
+                    line-height: 24px;
+                    text-align: left;
+                    vertical-align: middle;
+                    width: 20px;
+                    transition: all 0.2s ease-in-out 0s;
+                  }
+                }
+                span {
+                  transition: all 0.2s ease-in-out 0s;
+                  display: inline-block;
+                  margin-left: 15px;
+                  white-space: nowrap;
+                }
+                .menu-arrow {
+                  transition: all 0.2s ease-in-out 0s;
+                  display: inline-block;
+                  margin-left: 15px;
+                  white-space: nowrap;
+                  position: absolute;
+                  right: 15px;
+                  svg {
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+          }
+          .submenu {
+            ul {
+              a {
+                &:hover {
+                  color: #e76d01;
+                }
+                display: block;
+                padding: 9px 10px 9px 56px;
+                position: relative;
+                color: #444;
+                transition: all 0.2s ease-in-out;
+              }
+            }
+          }
+        }
+      }
+    }
+    .software-info {
+      color: #6c6c6c;
+      font-size: 12px;
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      a {
+        &:hover {
+          color: #000;
+        }
+        color: #6c6c6c;
+      }
+    }
+  }
+}
+.portal-login {
+  align-items: center;
+  display: flex;
+  font-size: 0.9375rem;
+  color: #1f1f1f;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  .main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    .account-content {
+      padding: 20px 0;
+      width: 450px;
+      .account-logo {
+        margin-bottom: 30px;
+        text-align: center;
+        img {
+          width: 300px;
+        }
+      }
+      .account-box {
+        background-color: #fff;
+        border: 1px solid #ededed;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        padding: 30px;
+        .account-title {
+          font-size: 26px;
+          font-weight: bold;
+          margin-bottom: 5px;
+          text-align: center;
+        }
+        .account-subtitle {
+          color: #4c4c4c;
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 30px;
+          text-align: center;
+        }
+        .form-control {
+          background-color: #fbfbfb;
+          border: 1px solid #e3e3e3;
+          border-radius: 4px;
+          height: 46px;
+          &.custom-form-control {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            height: calc(1.5em + 0.75rem + 2px);
+          }
+        }
+        .account-btn {
+          color: #fff;
+          background: linear-gradient(to right, #3fa491 0%, #087200 100%);
+          border: 0;
+          border-radius: 4px;
+          display: block;
+          font-size: 22px;
+          padding: 10px 26px;
+          width: 100%;
+        }
+        .account-footer {
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .portal-login {
+    .stepper-top {
+      display: none !important;
+    }
+  }
+}

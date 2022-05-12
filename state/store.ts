@@ -2,10 +2,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import { combineReducers } from "redux";
-import tshirt from "./slice/tshirt.slice";
+import user from "./slice/user.slice";
+import { appName } from "app-config";
 
 const middlewareConfiguration = { serializableCheck: false };
-const reducers = combineReducers({ tshirt });
+const reducers = combineReducers({ user });
 const persistConfig = {
   key: "root",
   storage,
@@ -15,7 +16,7 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
   reducer: persistedReducer,
-  devTools: { name: "SEOintell" },
+  devTools: { name: appName },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware(middlewareConfiguration),
 });
