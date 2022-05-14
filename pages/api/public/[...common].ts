@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { mysqlProcedure } from "utils/mysql.util";
-import { TcommonResponse } from './types/common-types';
+import { TcommonResponse } from '../types/common.type';
 const date = require("date-and-time");
 const procedure = "PROC_COMMON"
 const getRequests = ['vehicle_types', 'vehicle_subtypes', 'vehicle_models', 'vehicles']

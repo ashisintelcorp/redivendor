@@ -230,7 +230,8 @@
         margin-bottom: 30px;
         text-align: center;
         img {
-          width: 300px;
+          max-width: 300px;
+          max-height: 50px;
         }
       }
       .account-box {
@@ -268,12 +269,10 @@
         .account-btn {
           color: #fff;
           background: linear-gradient(to right, #3fa491 0%, #087200 100%);
-          border: 0;
           border-radius: 4px;
-          display: block;
           font-size: 22px;
           padding: 10px 26px;
-          width: 100%;
+          border: 0;
         }
         .account-footer {
           margin-top: 20px;

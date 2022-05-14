@@ -1,6 +1,7 @@
 import { failure, RemoteData, success, } from "@devexperts/remote-data-ts/lib/remote-data";
 import axios, { AxiosError, AxiosRequestConfig, AxiosRequestHeaders } from "axios";
-import { baseUrl } from "config";
+import { apiUrl } from "config";
+import { ILoginApiResponse } from "services/admin/auth.model";
 import { store } from "state/store";
 import { GetAuthorizationHeader } from "./auth.util";
 import { APIError, ApiStatus, ApplicationErrorResult, HttpStatus, NetworkFailResult, ServiceCallOutcome, WebServerErrorResult } from "./errors";
@@ -23,9 +24,9 @@ export type TApiClient = {
 
 type TQueryParam = {
   key: string;
-  value: string | string[] | boolean | number | Date | undefined;
+  value: string | string[] | boolean | number | Date | undefined | null;
 };
-type TGetQueryParam = { [index: string]: string | string[] | boolean | number | Date | undefined; }
+type TGetQueryParam = { [index: string]: string | string[] | boolean | number | Date | undefined | null; }
 
 export const createApiClient = (baseHref: string, extraheaders?: object): TApiClient => {
   // const controller = new AbortController();
@@ -122,7 +123,7 @@ export function FailedRequestError(ex: unknown): APIError {
 
 // const baseClient = createApiClient("http://ncaishapi.rocketflyer.in");
 // publicRuntimeConfig.apiUrl
-const baseClient = createApiClient(baseUrl, {
+const baseClient = createApiClient(apiUrl, {
   "client-id": "51319df20e758179899441",
 });
 
@@ -130,7 +131,7 @@ const baseClient = createApiClient(baseUrl, {
 export const ApiClient = baseClient;
 
 const apiClientRequest = {
-  post: async (path: string, body = {}, customHeaders: AxiosRequestHeaders = {}): Promise<RemoteData<APIError, object>> => {
+  post: async (path: string, body = {}, customHeaders: AxiosRequestHeaders = {}): Promise<RemoteData<APIError, string | string[] | boolean | number | Date | undefined | null>> => {
     const allQueryParams: TQueryParam[] = [];
     const queryParams = allQueryParams.map((param: TQueryParam) => `${param.key}=${param.value}`).join("&");
 
