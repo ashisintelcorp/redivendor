@@ -34,12 +34,16 @@ export const SearchBox: React.FC<{
                 </div>
                 <div className="row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="">Picking Up Date</label>
-                        <input type="date" className="form-control" />
+                        <label htmlFor="">Car Type</label>
+                        <select className="form-control custom-control" name="" id="">
+                            <option value="">-- SELECT --</option>
+                        </select>
                     </div>
                     <div className="form-group col-md-6">
-                        <label htmlFor="">Picking Up Time</label>
-                        <input type="date" className="form-control" />
+                        <label htmlFor="">Car Model</label>
+                        <select className="form-control custom-control" name="" id="">
+                            <option value="">-- SELECT --</option>
+                        </select>
                     </div>
                 </div>
             </div>
