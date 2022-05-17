@@ -10,11 +10,11 @@ export const Login: React.FC = () => {
         <Head>
             <title>Login - {appName}</title>
         </Head>
-        <MainLayout>
+        <MainLayout >
 
-            <div className="row">
-                <div className="col-md-3"></div>
-                <div className="col-md-6 py-5">
+            <div className="row bg-default">
+                <div className="col-md-4"></div>
+                <div className="col-md-4 py-5">
                     <form className="dark-form">
                         <div className="dark-form-header d-flex flex-wrap p-3">
                             <div className="icon"><img src="/images/login.png" alt="" /></div>
@@ -37,9 +37,9 @@ export const Login: React.FC = () => {
                             <button className="btn btn-warning text-uppercase py-2 px-5">Login</button>
                         </div>
                     </form>
-                    <Link href='/register' passHref ><a className="text-white text-center d-block mt-4">Don't have an account? Register now!</a></Link>
+                    <Link href='/register' passHref ><a className="text-success font-weight-bold text-center d-block mt-4">Don't have an account? Register now!</a></Link>
                 </div>
-                <div className="col-md-3"></div>
+                <div className="col-md-4"></div>
             </div>
 
         </MainLayout>

@@ -79,16 +79,16 @@
             justify-content: center;
             height: 100%;
             width: 95px;
-            &:first-child {
+            a {
               background: #50a716;
               color: #fff;
             }
-            &:last-child {
+            button {
               background: #222;
               color: #fff;
             }
-            a {
-              display: block;
+            a,
+            button {
               padding: 10px;
               text-decoration: none;
               height: 100%;
@@ -98,6 +98,7 @@
               align-items: center;
               justify-content: center;
               text-transform: uppercase;
+              border: 0;
               &:hover {
                 color: #ddd;
               }
@@ -134,9 +135,25 @@
   }
 }
 
+.search-modal {
+  .modal-dialog {
+    max-width: 400px;
+  }
+  .modal-body {
+    padding: 0;
+    .dark-form {
+      border-radius: 0;
+      .dark-form-fields {
+        background: rgba(0, 0, 0, 0.9);
+      }
+    }
+  }
+}
+
 .dark-form {
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   .dark-form-header {
     background: #000;
     color: #ffffff;
@@ -162,7 +179,7 @@
     }
   }
   .dark-form-fields {
-    background: #000000bf;
+    background: rgba(0, 0, 0, 0.9);
     label {
       color: #fff;
     }
@@ -182,7 +199,7 @@
   margin: 70px auto;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 2px 2px 4px 2px #e3e3e3;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   position: relative;
   .contact-info {
     background: #fff;
@@ -230,9 +247,8 @@
       min-height: 100px;
     }
   }
-
-  
 }
+
 footer {
   padding: 50px 0 0 50px;
   background: #ffeace;

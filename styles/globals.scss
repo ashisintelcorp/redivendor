@@ -7,6 +7,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
+  font-size: 14px;
 }
 
 a {
@@ -16,6 +17,18 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.bg-default {
+  background: #cfd5df;
+}
+
+.white-card {
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  padding: 1rem;
+  background: #fff;
 }
 
 .fa-spin {
