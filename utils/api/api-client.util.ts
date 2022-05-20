@@ -1,7 +1,7 @@
 import { failure, RemoteData, success, } from "@devexperts/remote-data-ts/lib/remote-data";
+import { apiURL } from "app-config";
 import axios, { AxiosError, AxiosRequestConfig, AxiosRequestHeaders } from "axios";
-import { apiUrl } from "config";
-import { ILoginApiResponse } from "services/admin/auth.model";
+import { IUserLoginApiResponse } from "services/user/auth.model";
 import { store } from "state/store";
 import { GetAuthorizationHeader } from "./auth.util";
 import { APIError, ApiStatus, ApplicationErrorResult, HttpStatus, NetworkFailResult, ServiceCallOutcome, WebServerErrorResult } from "./errors";
@@ -54,10 +54,10 @@ export const createApiClient = (baseHref: string, extraheaders?: object): TApiCl
 
     return axios
       .request(config)
-      .then((res) => res.data)
+      .then((res) => success(res.data))
       .catch((error) => {
         // console.log(`axios error:`, error);
-        return FailedRequestError(error);
+        return failure(FailedRequestError(error));
       });
   };
   // controller.abort();
@@ -123,7 +123,7 @@ export function FailedRequestError(ex: unknown): APIError {
 
 // const baseClient = createApiClient("http://ncaishapi.rocketflyer.in");
 // publicRuntimeConfig.apiUrl
-const baseClient = createApiClient(apiUrl, {
+const baseClient = createApiClient(apiURL, {
   "client-id": "51319df20e758179899441",
 });
 
@@ -131,7 +131,7 @@ const baseClient = createApiClient(apiUrl, {
 export const ApiClient = baseClient;
 
 const apiClientRequest = {
-  post: async (path: string, body = {}, customHeaders: AxiosRequestHeaders = {}): Promise<RemoteData<APIError, string | string[] | boolean | number | Date | undefined | null>> => {
+  post: async (path: string, body = {}, customHeaders: AxiosRequestHeaders = {}): Promise<RemoteData<APIError, string | string[] | boolean | number | Date | undefined | null | any>> => {
     const allQueryParams: TQueryParam[] = [];
     const queryParams = allQueryParams.map((param: TQueryParam) => `${param.key}=${param.value}`).join("&");
 
@@ -146,7 +146,7 @@ const apiClientRequest = {
 
     return await ApiClient.request(axiosRequestConfig);
   },
-  get: async (path: string, params: TGetQueryParam = {}, customHeaders: AxiosRequestHeaders = {}) => {
+  get: async (path: string, params: TGetQueryParam = {}, customHeaders: AxiosRequestHeaders = {}): Promise<RemoteData<APIError, string | string[] | boolean | number | Date | undefined | null | any>> => {
     let queryParams = ''
     if (Object.keys(params).length > 0) {
       queryParams = Object.keys(params)

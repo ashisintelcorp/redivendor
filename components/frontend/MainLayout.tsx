@@ -1,5 +1,9 @@
 import Header from "components/frontend/Header"
 import Link from "next/link"
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectUserInfo } from "state/slice/user.slice";
 import Footer from "./Footer";
 
 interface IMainLayout {
@@ -9,6 +13,13 @@ interface IMainLayout {
 }
 
 export const MainLayout: React.FC<IMainLayout> = ({ children, innerPage = true, pageName = "" }) => {
+    const user = useSelector(selectUserInfo)
+    const router = useRouter()
+    useEffect(() => {
+        if (user && ['/login', '/register', '/forgot-password'].includes(router.asPath))
+            router.push('/')
+    }, [user])
+
 
     return <>
         {

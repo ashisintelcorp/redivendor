@@ -1,4 +1,5 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "react-toastify/dist/ReactToastify.css";
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
 
 html,
@@ -41,5 +42,17 @@ a {
   }
   100% {
     transform: rotate(359deg);
+  }
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.otp-input {
+  display: flex;
+  input {
+    width: 100% !important;
+    border-radius: 0.25rem;
   }
 }

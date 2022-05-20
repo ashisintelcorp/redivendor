@@ -8,28 +8,30 @@ import { useState } from "react"
 import { AuthService } from "services/user/auth.service"
 import { isFailure, isSuccess } from "@devexperts/remote-data-ts"
 import { toast } from "react-toastify"
-import { IUserRegisterApiRequest, IUserRegisterOtpApiRequest } from "services/user/auth.model"
+import { IUserForgotPassApiRequest } from "services/user/auth.model"
 import OtpInput from 'react-otp-input';
 import classNames from "classnames"
 import { MdKeyboardBackspace } from "react-icons/md"
 
-const RegisterScreen: React.FC<{ setScreen: (num: number) => void; setDefaultData: (data: IUserRegisterOtpApiRequest) => void; }> = ({ setScreen, setDefaultData }) => {
+const ForgotPassScreen: React.FC<{ defaultData: IUserForgotPassApiRequest; setDefaultData: (data: IUserForgotPassApiRequest) => void; }> = ({ defaultData, setDefaultData }) => {
     const {
         register,
         formState: { errors },
         reset, getValues,
         handleSubmit,
-    } = useForm<IUserRegisterApiRequest>();
+    } = useForm<IUserForgotPassApiRequest>({
+        defaultValues: { vchUserMob: defaultData.vchUserMob, vchUserOtp: defaultData.vchUserOtp, vchUserPass: defaultData.vchUserPass, vchUserRePass: defaultData.vchUserRePass, screen: defaultData.screen }
+    });
     const [isProcessing, setIsProcessing] = useState(false)
 
-    const handleForm = async (data: IUserRegisterApiRequest) => {
+    const handleForm = async (data: IUserForgotPassApiRequest) => {
+        console.log(data)
         setIsProcessing(true)
-        let result = await AuthService.userRegister(data)
+        let result = await AuthService.userForgotPass(data)
         setIsProcessing(false)
         if (isSuccess(result)) {
             if (result.value.successful) {
-                setScreen(2)
-                setDefaultData({ vchUserMob: data.vchUserMob, vchUserOtp: '' })
+                setDefaultData({ ...defaultData, screen: 2, vchUserOtp: '', vchUserMob: data.vchUserMob })
             } else {
                 toast.error(result.value.message)
             }
@@ -39,59 +41,43 @@ const RegisterScreen: React.FC<{ setScreen: (num: number) => void; setDefaultDat
     }
 
     return <div className="row bg-default">
-        <div className="col-md-3"></div>
-        <div className="col-md-6 py-5">
+        <div className="col-md-4"></div>
+        <div className="col-md-4 py-5">
             <form onSubmit={handleSubmit(handleForm)} className="dark-form">
                 <div className="dark-form-header d-flex flex-wrap p-3">
                     <div className="icon"><img src="/images/login.png" alt="" /></div>
                     <div className="text d-flex align-items-start flex-column justify-content-center">
-                        <div className="title"><strong>Register</strong></div>
+                        <div className="title"><strong>Forgot Password</strong></div>
                     </div>
                 </div>
                 <div className="dark-form-fields p-3">
-                    <div className="row">
-                        <FormInput register={{ ...register("vchUserFname", { required: 'First name is required!' }) }} error={errors?.vchUserFname?.message} wrapperClasses="form-group col-md-6" label="First Name" placeholder="Enter your Firstname" />
-                        <FormInput register={{ ...register("vchUserLname", { required: 'Last name is required!' }) }} error={errors?.vchUserLname?.message} wrapperClasses="form-group col-md-6" label="Last Name" placeholder="Enter your last name" />
-                    </div>
-                    <FormInput register={{
-                        ...register("vchUserEmail", {
-                            required: 'Email ID is required!', pattern: {
-                                value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                                message: 'Invalid email ID!'
-                            }
-                        })
-                    }} error={errors?.vchUserEmail?.message} wrapperClasses="form-group" label="Email ID" placeholder="Enter your e-mail" />
                     <FormInput register={{ ...register("vchUserMob", { required: 'Mobile no. is required!', validate: (val) => val.length === 10 || 'Mobile no. must be 10 digit' }) }} error={errors?.vchUserMob?.message} wrapperClasses="form-group" label="Mobile Number" placeholder="Enter your mobile no." maxLength={10} />
-                    <div className="row">
-                        <FormInput register={{ ...register("vchUserPass", { required: 'Password is required!', validate: (val) => val.length >= 6 || 'Password must have at least 6 characters' }) }} error={errors?.vchUserPass?.message} wrapperClasses="form-group col-md-6" label="Password" placeholder="Enter password" type="password" />
-                        <FormInput register={{ ...register("vchUserRePass", { required: 'Confirm password is required!', validate: val => val === getValues('vchUserPass') || 'Password not matching' }) }} error={errors?.vchUserRePass?.message} wrapperClasses="form-group col-md-6" label="Confirm Password" placeholder="Enter password again" type="password" />
-                    </div>
                 </div>
 
                 <div className="bg-white d-flex align-items-center justify-content-end p-3">
-                    <FormButton disabled={isProcessing} className="btn btn-warning text-uppercase py-2 px-5" text="Register" />
+                    <FormButton disabled={isProcessing} className="btn btn-warning text-uppercase py-2 px-5" text="Send Verification OTP" />
                 </div>
             </form>
-            <Link href='/login' passHref ><a className="text-success font-weight-bold text-center d-block mt-4">Already have an account? Login now!</a></Link>
+            <Link href='/login' passHref ><a className="text-success font-weight-bold text-center d-block mt-4"> Login here!</a></Link>
         </div>
+        <div className="col-md-4"></div>
     </div>
 }
 
-const RegisterOtpScreen: React.FC<{ setScreen: (num: number) => void; defaultData: IUserRegisterOtpApiRequest; setDefaultData: (data: IUserRegisterOtpApiRequest) => void; }> = ({ setScreen, defaultData, setDefaultData }) => {
+const ForgotPassOtpScreen: React.FC<{ defaultData: IUserForgotPassApiRequest; setDefaultData: (data: IUserForgotPassApiRequest) => void; }> = ({ defaultData, setDefaultData }) => {
     const [isProcessing, setIsProcessing] = useState(false)
     const [errMessage, setErrMessage] = useState('')
 
     const handleForm = async (e: React.SyntheticEvent) => {
         e.preventDefault()
-        console.log(defaultData)
         setErrMessage('')
         if (defaultData.vchUserOtp) {
             setIsProcessing(true)
-            let result = await AuthService.userRegisterOtp(defaultData)
+            let result = await AuthService.userForgotPass(defaultData)
             setIsProcessing(false)
             if (isSuccess(result)) {
                 if (result.value.successful) {
-                    setScreen(3)
+                    setDefaultData({ ...defaultData, screen: 3, })
                 } else {
                     toast.error(result.value.message)
                 }
@@ -114,7 +100,7 @@ const RegisterOtpScreen: React.FC<{ setScreen: (num: number) => void; defaultDat
                     </div>
                 </div>
                 <div className="dark-form-fields p-3">
-                    <p className="text-white">An 6-digit OTP has sent to your mobile no. <b>{defaultData.vchUserMob}</b>. Please enter the OTP to complete your registration process.</p>
+                    <p className="text-white">An 6-digit OTP has sent to your mobile no. <b>{defaultData.vchUserMob}</b>. Please enter the OTP to reset your account password.</p>
 
                     <div className="form-group">
                         <label htmlFor="vchUserMob">Mobile No.</label>
@@ -137,8 +123,7 @@ const RegisterOtpScreen: React.FC<{ setScreen: (num: number) => void; defaultDat
                 <div className="bg-white d-flex align-items-center justify-content-between p-3">
                     <button onClick={() => {
                         setErrMessage('')
-                        setDefaultData({ vchUserMob: '', vchUserOtp: '' })
-                        setScreen(1)
+                        setDefaultData({ ...defaultData, screen: 1, vchUserOtp: '' })
                     }} type="button" className="btn btn-default"><MdKeyboardBackspace className="mr-2" />Back</button>
                     <FormButton disabled={isProcessing} className="btn btn-warning text-uppercase py-2 px-5" text="Verify OTP" />
                 </div>
@@ -148,7 +133,61 @@ const RegisterOtpScreen: React.FC<{ setScreen: (num: number) => void; defaultDat
     </div>
 }
 
-const RegisterSuccessScreen: React.FC = () => {
+const ForgotPassInputScreen: React.FC<{ defaultData: IUserForgotPassApiRequest; setDefaultData: (data: IUserForgotPassApiRequest) => void; }> = ({ defaultData, setDefaultData }) => {
+    const {
+        register,
+        formState: { errors },
+        reset, getValues,
+        handleSubmit,
+    } = useForm<IUserForgotPassApiRequest>({
+        defaultValues: { vchUserPass: '', vchUserRePass: '', }
+    });
+    const [isProcessing, setIsProcessing] = useState(false)
+
+    const handleForm = async (data: IUserForgotPassApiRequest) => {
+        setIsProcessing(true)
+        let result = await AuthService.userForgotPass({ ...defaultData, ...data })
+        setIsProcessing(false)
+        if (isSuccess(result)) {
+            if (result.value.successful) {
+                setDefaultData({ ...defaultData, screen: 4 })
+            } else {
+                toast.error(result.value.message)
+            }
+        } else if (isFailure(result)) {
+            toast.error(result.error.outcome)
+        }
+    }
+
+    return <div className="row bg-default">
+        <div className="col-md-4"></div>
+        <div className="col-md-4 py-5">
+            <form onSubmit={handleSubmit(handleForm)} className="dark-form">
+                <div className="dark-form-header d-flex flex-wrap p-3">
+                    <div className="icon"><img src="/images/login.png" alt="" /></div>
+                    <div className="text d-flex align-items-start flex-column justify-content-center">
+                        <div className="title"><strong>Reset Password</strong></div>
+                    </div>
+                </div>
+                <div className="dark-form-fields p-3">
+
+                    <FormInput register={{ ...register("vchUserPass", { required: 'Password is required!', validate: (val) => val && val.length >= 6 || 'Password must have at least 6 characters' }) }} error={errors?.vchUserPass?.message} wrapperClasses="form-group" label="New Password" placeholder="Enter new password" type="password" />
+
+                    <FormInput register={{ ...register("vchUserRePass", { required: 'Confirm password is required!', validate: val => val === getValues('vchUserPass') || 'Password not matching' }) }} error={errors?.vchUserRePass?.message} wrapperClasses="form-group" label="Confirm New Password" placeholder="Enter password again" type="password" />
+
+                </div>
+
+                <div className="bg-white d-flex align-items-center justify-content-end p-3">
+                    <FormButton disabled={isProcessing} className="btn btn-warning text-uppercase py-2 px-5" text="Reset Password" />
+                </div>
+            </form>
+            <Link href='/login' passHref ><a className="text-success font-weight-bold text-center d-block mt-4"> Login here!</a></Link>
+        </div>
+        <div className="col-md-4"></div>
+    </div>
+}
+
+const ForgotPassSuccessScreen: React.FC = () => {
     return <div className="row bg-default">
         <div className="col-md-4"></div>
         <div className="col-md-4 py-5">
@@ -156,7 +195,7 @@ const RegisterSuccessScreen: React.FC = () => {
                 <div className="dark-form-header d-flex flex-wrap p-3">
                     <div className="icon"><img src="/images/login.png" alt="" /></div>
                     <div className="text d-flex align-items-start flex-column justify-content-center">
-                        <div className="title"><strong>Registration Completed</strong></div>
+                        <div className="title"><strong>Pasword Changed</strong></div>
                     </div>
                 </div>
                 <div className="dark-form-fields p-3">
@@ -164,7 +203,7 @@ const RegisterSuccessScreen: React.FC = () => {
                         <img src="/images/icons/tick.png" alt="" />
                     </div>
                     <h5 className="text-white text-center">Thank you!</h5>
-                    <p className="text-muted text-center">You have completed the registration process.</p>
+                    <p className="text-muted text-center">You have completed the password reset process.</p>
                 </div>
                 <div className="bg-white d-flex align-items-center justify-content-end p-3">
                     <Link href={'/login'} passHref><a className="btn btn-warning text-uppercase py-2 px-5" >Login Now</a></Link>
@@ -175,26 +214,28 @@ const RegisterSuccessScreen: React.FC = () => {
     </div>
 }
 
-export const Register: React.FC = () => {
+export const ForgotPasswordPage: React.FC = () => {
 
-    const [screen, setScreen] = useState(1)
-    const [defaultData, setDefaultData] = useState<IUserRegisterOtpApiRequest>({ vchUserMob: '', vchUserOtp: '', })
+    const [defaultData, setDefaultData] = useState<IUserForgotPassApiRequest>({ vchUserMob: '', vchUserOtp: '', vchUserPass: '', vchUserRePass: '', screen: 1 })
     return <>
         <Head>
-            <title>Register - {appName}</title>
+            <title>Forgot Password - {appName}</title>
         </Head>
         <MainLayout>
-            <div className={classNames({ 'd-none': screen === 2 || screen === 3 })}>
-                <RegisterScreen setScreen={num => setScreen(num)} setDefaultData={data => setDefaultData(data)} />
+            <div className={classNames({ 'd-none': defaultData.screen === 2 || defaultData.screen === 3 || defaultData.screen === 4 })}>
+                <ForgotPassScreen defaultData={defaultData} setDefaultData={data => setDefaultData(data)} />
             </div>
-            <div className={classNames({ 'd-none': screen === 1 || screen === 3 })}>
-                <RegisterOtpScreen setScreen={num => setScreen(num)} defaultData={defaultData} setDefaultData={data => setDefaultData(data)} />
+            <div className={classNames({ 'd-none': defaultData.screen === 1 || defaultData.screen === 3 || defaultData.screen === 4 })}>
+                <ForgotPassOtpScreen defaultData={defaultData} setDefaultData={data => setDefaultData(data)} />
             </div>
-            <div className={classNames({ 'd-none': screen === 1 || screen === 2 })}>
-                <RegisterSuccessScreen />
+            <div className={classNames({ 'd-none': defaultData.screen === 1 || defaultData.screen === 2 || defaultData.screen === 4 })}>
+                <ForgotPassInputScreen defaultData={defaultData} setDefaultData={data => setDefaultData(data)} />
+            </div>
+            <div className={classNames({ 'd-none': defaultData.screen === 1 || defaultData.screen === 2 || defaultData.screen === 3 })}>
+                <ForgotPassSuccessScreen />
             </div>
         </MainLayout>
     </>
 }
 
-export default Register
+export default ForgotPasswordPage
