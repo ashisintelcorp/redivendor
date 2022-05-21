@@ -19,11 +19,12 @@ const slice = createSlice({
     setUserInfo: (state: IUserDetails, { payload }: PayloadAction<IUserInfo>) => {
       state.info = { ...state.info, ...payload };
     },
-    setToken: (state: IUserDetails, { payload }: PayloadAction<IUserToken>) => {
+    setUserToken: (state: IUserDetails, { payload }: PayloadAction<IUserToken>) => {
       state.token = payload
     },
-    userLogout: (state: IUserDetails) => {
-      state = { info: null, token: null, }
+    setUserLogout: (state: IUserDetails) => {
+      state.info = null
+      state.token = null
     },
   },
 });
@@ -31,5 +32,5 @@ const slice = createSlice({
 export const selectUserInfo = (state: State) => state.user.info;
 export const selectAccessToken = (state: State) => state.user.token?.accessToken || null;
 
-export const { initializeApp, setUserDetails, setUserInfo, setToken, userLogout } = slice.actions;
+export const { initializeApp, setUserDetails, setUserInfo, setUserToken, setUserLogout } = slice.actions;
 export default slice.reducer;

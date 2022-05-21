@@ -8,6 +8,7 @@ export interface IUserRegisterApiResponse {
 }
 
 export interface IUserRegisterApiRequest {
+    intUserType: number | string;
     vchUserFname: string;
     vchUserLname: string;
     vchUserEmail: string;
@@ -17,6 +18,7 @@ export interface IUserRegisterApiRequest {
 }
 
 export interface IUserRegisterOtpApiRequest {
+    intUserType: number | string;
     vchUserMob: string;
     vchUserOtp: string;
 }
@@ -28,13 +30,16 @@ export interface IUserRegisterOtpApiResponse {
 
 /************************************************************
  * USER LOGIN
+ * For User, Driver & Owner
  ************************************************************/
 export interface IUserLoginApiRequest {
+    intUserType: string | number;
     vchUserMob: string;
     vchUserPass: string;
 }
 
 export interface IUserInfo {
+    intUserType: number | string;
     vchUserUid: string;
     vchUserFname: string;
     vchUserLname: string;
@@ -62,6 +67,7 @@ export interface IUserLoginApiResponse {
  * USER FORGOT PASSWORD
  ************************************************************/
 export interface IUserForgotPassApiRequest {
+    intUserType: number | string;
     vchUserMob: string;
     vchUserOtp?: string;
     vchUserPass?: string;

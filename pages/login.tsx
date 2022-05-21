@@ -19,7 +19,13 @@ export const Login: React.FC = () => {
         formState: { errors },
         reset,
         handleSubmit,
-    } = useForm<IUserLoginApiRequest>();
+    } = useForm<IUserLoginApiRequest>({
+        defaultValues: {
+            intUserType: '0',
+            vchUserMob: '',
+            vchUserPass: '',
+        }
+    });
     const [isProcessing, setIsProcessing] = useState(false)
 
     const handleForm = async (data: IUserLoginApiRequest) => {
@@ -57,6 +63,19 @@ export const Login: React.FC = () => {
                             </div>
                         </div>
                         <div className="dark-form-fields p-3">
+
+                            <div className="form-check form-check-inline">
+                                <input {...register("intUserType")} className="form-check-input" type="radio" name="intUserType" id="userType0" value="0" />
+                                <label className="form-check-label" htmlFor="userType0">User</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input {...register("intUserType")} className="form-check-input" type="radio" name="intUserType" id="userType1" value="1" />
+                                <label className="form-check-label" htmlFor="userType1">Driver</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input {...register("intUserType")} className="form-check-input" type="radio" name="intUserType" id="userType2" value="2" />
+                                <label className="form-check-label" htmlFor="userType2">Owner</label>
+                            </div>
                             <FormInput register={{ ...register("vchUserMob", { required: 'Mobile no. is required!', validate: (val) => val.length === 10 || 'Mobile no. must be 10 digit' }) }} error={errors?.vchUserMob?.message} wrapperClasses="form-group" label="Mobile Number" placeholder="Enter your mobile no." maxLength={10} />
                             <FormInput register={{ ...register("vchUserPass", { required: 'Password is required!' }) }} error={errors?.vchUserPass?.message} wrapperClasses="form-group" label="Password" placeholder="Enter password" type="password" />
                         </div>

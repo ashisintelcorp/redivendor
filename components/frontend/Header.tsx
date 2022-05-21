@@ -1,19 +1,29 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiLock2Fill, RiSearch2Fill, RiUser6Fill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUserInfo, userLogout } from "state/slice/user.slice";
+import { IUserInfo } from "services/user/auth.model";
+import { selectUserInfo, setUserLogout } from "state/slice/user.slice";
 import SearchModal from "./SearchModal";
 
 const Header = () => {
     const router = useRouter()
     const dispatch = useDispatch()
-    const user = useSelector(selectUserInfo)
+    const userSelector = useSelector(selectUserInfo)
     const [showSearchModal, setShowSearchModal] = useState(false)
+    const [user, setUser] = useState<IUserInfo | null>(null)
+
+    useEffect(() => {
+        if (userSelector)
+            setUser(userSelector)
+    }, [userSelector])
+
+
     const logout = () => {
-        dispatch(userLogout())
-        router.push('/')
+        console.log('LOGOUT')
+        dispatch(setUserLogout())
+        router.push('/login')
     }
     return <>
         <header>
@@ -21,7 +31,6 @@ const Header = () => {
                 <div className="logo"><Link href={'/'} passHref><a><img src="/images/logo.png" alt="RediCabs" /></a></Link></div>
                 <div className="nav-section">
                     <ul className="main-nav">
-                        {/* <li><a href="/"></a></li> */}
                         <li><Link href={'/'}>Home</Link></li>
                         <li><Link href={'/about'}>About Us</Link></li>
                         <li><Link href={'/'}>Vehicles</Link></li>
@@ -30,7 +39,6 @@ const Header = () => {
                         <li><Link href={'/contact'}>Contact</Link></li>
                     </ul>
                     <ul className="btn-nav">
-
                         {!user ? <li>
                             <Link href={'/login'} passHref>
                                 <a><RiLock2Fill size={24} className="mb-2" /> Login</a>
@@ -46,11 +54,10 @@ const Header = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <button onClick={logout}>Logout</button>
+                                    <button onClick={() => logout()}>Logout</button>
                                 </li>
                             </ul>
                         </li>}
-
                         <li><button onClick={() => setShowSearchModal(!showSearchModal)} ><RiSearch2Fill size={24} /> Search</button></li>
                     </ul>
                 </div>

@@ -29,7 +29,7 @@ const RegisterScreen: React.FC<{ setScreen: (num: number) => void; setDefaultDat
         if (isSuccess(result)) {
             if (result.value.successful) {
                 setScreen(2)
-                setDefaultData({ vchUserMob: data.vchUserMob, vchUserOtp: '' })
+                setDefaultData({ intUserType: '0', vchUserMob: data.vchUserMob, vchUserOtp: '' })
             } else {
                 toast.error(result.value.message)
             }
@@ -137,7 +137,7 @@ const RegisterOtpScreen: React.FC<{ setScreen: (num: number) => void; defaultDat
                 <div className="bg-white d-flex align-items-center justify-content-between p-3">
                     <button onClick={() => {
                         setErrMessage('')
-                        setDefaultData({ vchUserMob: '', vchUserOtp: '' })
+                        setDefaultData({ intUserType: '0', vchUserMob: '', vchUserOtp: '' })
                         setScreen(1)
                     }} type="button" className="btn btn-default"><MdKeyboardBackspace className="mr-2" />Back</button>
                     <FormButton disabled={isProcessing} className="btn btn-warning text-uppercase py-2 px-5" text="Verify OTP" />
@@ -178,7 +178,7 @@ const RegisterSuccessScreen: React.FC = () => {
 export const Register: React.FC = () => {
 
     const [screen, setScreen] = useState(1)
-    const [defaultData, setDefaultData] = useState<IUserRegisterOtpApiRequest>({ vchUserMob: '', vchUserOtp: '', })
+    const [defaultData, setDefaultData] = useState<IUserRegisterOtpApiRequest>({ intUserType: '0', vchUserMob: '', vchUserOtp: '', })
     return <>
         <Head>
             <title>Register - {appName}</title>
