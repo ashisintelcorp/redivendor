@@ -16,6 +16,7 @@ const HomePage: NextPage<{
         <div className="jumbotron hello">{text}</div>
         <Link passHref href={'/contact'}><a className='btn btn-warning'>Contact now!</a></Link>
       </div>
+      <img src="/images/logo.png" alt="" />
       <Hello />
     </>
   )
