@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 import { appName } from "app-config";
 import { IDashboard, ISidebarLink } from "./models/dashboard";
+import { RiCloseFill, RiMenuLine } from "react-icons/ri";
 
 const Sidebar: React.FC<{ sidebarLinks: ISidebarLink[] | [] }> = ({ sidebarLinks }) => {
     const router = useRouter()
@@ -83,6 +84,7 @@ const Sidebar: React.FC<{ sidebarLinks: ISidebarLink[] | [] }> = ({ sidebarLinks
 
 
 export const Dashboard: React.FC<IDashboard> = ({ appLink = "/", logo = "", children, pageHeader, sidebarLinks }) => {
+    const [maxScreen, setMaxScreen] = useState(false)
     return (
         <>
             <div className="portal-wrapper">
@@ -93,8 +95,13 @@ export const Dashboard: React.FC<IDashboard> = ({ appLink = "/", logo = "", chil
                                 <img height="40" src={logo} alt="Logo" />
                             </a>
                         </Link>
+
                     </div>
-                    <div className="header-right">{pageHeader}</div>
+                    <div className="header-right">
+                        <div onClick={() => setMaxScreen(!maxScreen)} className="sidebar-action">
+                            {!maxScreen ? <RiMenuLine size={22} /> : <RiCloseFill size={22} />}
+                        </div>
+                        {pageHeader}</div>
                 </div>
 
                 <div className="page-wrapper">

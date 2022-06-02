@@ -1,7 +1,6 @@
 import { failure, RemoteData, success, } from "@devexperts/remote-data-ts/lib/remote-data";
 import { apiURL } from "app-config";
 import axios, { AxiosError, AxiosRequestConfig, AxiosRequestHeaders } from "axios";
-import { IUserLoginApiResponse } from "services/user/auth.model";
 import { store } from "state/store";
 import { GetAuthorizationHeader } from "./auth.util";
 import { APIError, ApiStatus, ApplicationErrorResult, HttpStatus, NetworkFailResult, ServiceCallOutcome, WebServerErrorResult } from "./errors";
@@ -46,11 +45,12 @@ export const createApiClient = (baseHref: string, extraheaders?: object): TApiCl
     };
 
     // if token is available, add it to the headers
-    const token = store.getState().user.accessToken;
+    const token = store.getState().user.token?.accessToken || '';
     // console.log(token);
     if (token) {
       config = await GetAuthorizationHeader(config);
     }
+    // console.log(config)
 
     return axios
       .request(config)
@@ -139,7 +139,22 @@ const apiClientRequest = {
     let headers = customHeaders;
     const axiosRequestConfig = {
       url: apiUrl,
-      method: "post",
+      method: "POST",
+      data: body,
+      headers: { ...headers },
+    };
+
+    return await ApiClient.request(axiosRequestConfig);
+  },
+  put: async (path: string, body = {}, customHeaders: AxiosRequestHeaders = {}): Promise<RemoteData<APIError, string | string[] | boolean | number | Date | undefined | null | any>> => {
+    const allQueryParams: TQueryParam[] = [];
+    const queryParams = allQueryParams.map((param: TQueryParam) => `${param.key}=${param.value}`).join("&");
+
+    const apiUrl = queryParams === "" ? path : path.concat(`?${queryParams}`);
+    let headers = customHeaders;
+    const axiosRequestConfig = {
+      url: apiUrl,
+      method: "PUT",
       data: body,
       headers: { ...headers },
     };
@@ -157,7 +172,7 @@ const apiClientRequest = {
     let headers = customHeaders;
     const axiosRequestConfig = {
       url: apiUrl,
-      method: "get",
+      method: "GET",
       headers: { ...headers },
     };
 

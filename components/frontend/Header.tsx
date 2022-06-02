@@ -3,27 +3,25 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { RiLock2Fill, RiSearch2Fill, RiUser6Fill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { IUserInfo } from "services/user/auth.model";
-import { selectUserInfo, setUserLogout } from "state/slice/user.slice";
 import SearchModal from "./SearchModal";
 
 const Header = () => {
     const router = useRouter()
     const dispatch = useDispatch()
-    const userSelector = useSelector(selectUserInfo)
+    // const userSelector = useSelector(selectUserInfo)
     const [showSearchModal, setShowSearchModal] = useState(false)
-    const [user, setUser] = useState<IUserInfo | null>(null)
+    // const [user, setUser] = useState<IUserInfo | null>(null)
 
-    useEffect(() => {
+    /* useEffect(() => {
         if (userSelector)
             setUser(userSelector)
-    }, [userSelector])
+    }, [userSelector]) */
 
 
     const logout = () => {
-        console.log('LOGOUT')
+        /* console.log('LOGOUT')
         dispatch(setUserLogout())
-        router.push('/login')
+        router.push('/login') */
     }
     return <>
         <header>
@@ -39,7 +37,12 @@ const Header = () => {
                         <li><Link href={'/contact'}>Contact</Link></li>
                     </ul>
                     <ul className="btn-nav">
-                        {!user ? <li>
+                        <li>
+                            <Link href={'/login'} passHref>
+                                <a><RiLock2Fill size={24} className="mb-2" /> Login</a>
+                            </Link>
+                        </li>
+                        {/* {!user ? <li>
                             <Link href={'/login'} passHref>
                                 <a><RiLock2Fill size={24} className="mb-2" /> Login</a>
                             </Link>
@@ -57,7 +60,7 @@ const Header = () => {
                                     <button onClick={() => logout()}>Logout</button>
                                 </li>
                             </ul>
-                        </li>}
+                        </li>} */}
                         <li><button onClick={() => setShowSearchModal(!showSearchModal)} ><RiSearch2Fill size={24} /> Search</button></li>
                     </ul>
                 </div>

@@ -1,6 +1,6 @@
 import '../styles/globals.scss'
 import '../styles/home.scss'
-import '../styles/dashboard.scss'
+import '../styles/uiComponents/dashboard.scss'
 import '../styles/search-page.scss'
 import '../styles/uiComponents/Accordion.scss'
 import type { AppProps } from 'next/app'

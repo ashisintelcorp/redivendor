@@ -1,44 +1,59 @@
 import { isFailure, isSuccess } from "@devexperts/remote-data-ts";
 import { appName } from "app-config"
+import { IAdminLoginApiRequest } from "models/admin/Auth";
 import Head from "next/head"
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { AuthService } from "services/admin/auth.service";
+import { AdminAuthService } from "services/admin/auth.service";
+import { UserReduxStore } from "state/slice/user.slice";
+import { validateEmail } from "utils/common";
 import { FormButton, FormInput } from "uiComponents/Form";
-interface IFormData {
-    username: string;
-    password: string;
-}
+import { EUserStatus } from "models/common/UserState";
 
 const WebPortalLoginPage = () => {
-    const router = useRouter();
+    const router = useRouter()
+    const token = UserReduxStore.selectAccessToken
     const {
         register,
-        handleSubmit,
         formState: { errors },
-    } = useForm<IFormData>({
+        reset,
+        handleSubmit,
+    } = useForm<IAdminLoginApiRequest>({
         defaultValues: {
-            username: '',
-            password: ''
+            vchAdminEmail: '',
+            vchAdminPass: '',
         }
     });
+    const [isProcessing, setIsProcessing] = useState(false)
 
-    const [isProcessing, setIsProcessing] = useState(false);
+    /* useEffect(() => {
+        if (token)
+            router.push('/')
+    }, [token]) */
 
-    const onSubmit: SubmitHandler<IFormData> = async (data) => {
-        // setIsProcessing(true)
-        let result = await AuthService.login(data.username, data.password)
-        // setIsProcessing(false)
+
+    const handleForm = async (data: IAdminLoginApiRequest) => {
+        setIsProcessing(true)
+        let result = await AdminAuthService.login(data)
+        setIsProcessing(false)
+        console.log(result)
         if (isSuccess(result)) {
-            console.log(result)
+            if (result.value.successful && result.value.status === EUserStatus.ACTIVE) {
+                toast.success(result.value.message)
+                if (result.value.data) {
+                    // dispatch(setUser(result.value.data))
+                }
+            } else {
+                toast.error(result.value.message)
+            }
         } else if (isFailure(result)) {
-            console.log(result.error)
-            // toast.error(result.message)
+            toast.error(result.error.outcome)
         }
-    };
+    }
+
 
     return <>
         <Head>
@@ -55,24 +70,21 @@ const WebPortalLoginPage = () => {
                                 </a>
                             </Link>
                         </div>
-                        <div className="account-box">
+                        <div className="account-box white-card p-5">
                             <h3 className="account-title mb-5">Admin Login</h3>
-                            <form onSubmit={handleSubmit(onSubmit)}>
+                            <form onSubmit={handleSubmit(handleForm)}>
                                 <FormInput
                                     wrapperClasses="form-group"
                                     register={{
-                                        ...register("username", {
+                                        ...register("vchAdminEmail", {
                                             required: "Email ID is required",
-                                            pattern: {
-                                                value: /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/i,
-                                                message: "Invalid email",
-                                            },
+                                            validate: val => validateEmail(val) || "Invalid email"
                                         }),
                                     }}
                                     placeholder="Enter Email ID"
-                                    error={errors?.username?.message}
+                                    error={errors?.vchAdminEmail?.message}
                                 />
-                                <FormInput wrapperClasses="form-group" type="password" register={{ ...register("password", { required: "Password is required" }) }} placeholder="Enter Password" error={errors?.password?.message} />
+                                <FormInput wrapperClasses="form-group" type="password" register={{ ...register("vchAdminPass", { required: "Password is required" }) }} placeholder="Enter Password" error={errors?.vchAdminPass?.message} />
                                 <FormButton wrapperClasses="form-group text-center" className="mb-2 account-btn d-block text-uppercase w-100" disabled={isProcessing} text="Login" />
                             </form>
                         </div>

@@ -18,7 +18,7 @@ function GetSafeExpiryMillis(expiresInSeconds: number): number {
 }
 
 export async function GetAuthorizationHeader(config: AxiosRequestConfig) {
-    let accessToken = store.getState().user.accessToken;
+    let accessToken = store.getState().user.token?.accessToken || '';
     if (accessToken !== "") {
         config = {
             ...config,

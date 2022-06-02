@@ -1,36 +1,52 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUserDetails, IUserInfo, IUserToken } from "services/user/auth.model";
-import { State } from "../store";
+import { IUserState } from "models/common/userState";
+import { State, store } from "../store";
 
-const initialState: IUserDetails = {
-  info: null,
-  token: null,
+const initialState: IUserState = {
+  role: IUserState.EnumUserRoles.USER,
+  token: {
+    accessToken: ''
+  }
 };
 
-const slice = createSlice({
+const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
     initializeApp: () => initialState,
-    setUserDetails: (state: IUserDetails, { payload }: PayloadAction<IUserDetails>) => {
-      state.info = payload.info
+    setUser: (state: IUserState, { payload }: PayloadAction<IUserState>) => {
+      state.role = payload.role
+      if (payload.role == IUserState.EnumUserRoles.ADMIN)
+        state.admin = payload.admin
+      if (payload.role == IUserState.EnumUserRoles.OWNER)
+        state.owner = payload.owner
+      if (payload.role == IUserState.EnumUserRoles.DRIVER)
+        state.driver = payload.driver
+      if (payload.role == IUserState.EnumUserRoles.USER)
+        state.user = payload.user
       state.token = payload.token
     },
-    setUserInfo: (state: IUserDetails, { payload }: PayloadAction<IUserInfo>) => {
-      state.info = { ...state.info, ...payload };
-    },
-    setUserToken: (state: IUserDetails, { payload }: PayloadAction<IUserToken>) => {
-      state.token = payload
-    },
-    setUserLogout: (state: IUserDetails) => {
-      state.info = null
-      state.token = null
-    },
-  },
-});
+    setUserLogout: (state: IUserState) => {
+      state.role = IUserState.EnumUserRoles.USER
+      state.token = { accessToken: '' }
+    }
+  }
+})
 
-export const selectUserInfo = (state: State) => state.user.info;
-export const selectAccessToken = (state: State) => state.user.token?.accessToken || null;
+export namespace UserDispatch {
+  export const setUser = (payload: IUserState) =>
+    store.dispatch(userSlice.actions.setUser(payload))
+  export const setUserLogout = (payload: IUserState) =>
+    store.dispatch(userSlice.actions.setUserLogout())
+}
 
-export const { initializeApp, setUserDetails, setUserInfo, setUserToken, setUserLogout } = slice.actions;
-export default slice.reducer;
+export namespace UserReduxStore {
+  export const selectUserRole = (state: State) => state.user.role;
+  export const selectAdminProfile = (state: State) => state.user.admin;
+  export const selectOwnerProfile = (state: State) => state.user.owner;
+  export const selectDriverProfile = (state: State) => state.user.driver;
+  export const selectUserProfile = (state: State) => state.user.user;
+  export const selectAccessToken = (state: State) => state.user.token?.accessToken;
+}
+
+export default userSlice.reducer;
