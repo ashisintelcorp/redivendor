@@ -275,7 +275,7 @@
 
 footer {
   padding: 50px 0 0 50px;
-  background: #ffeace;
+  background: #e5eaf2;
   .logo {
     max-width: 100%;
   }
@@ -284,7 +284,7 @@ footer {
   }
   a {
     &:hover {
-      color: #ffbf00;
+      color: #dc3545;
     }
   }
   ul.links {
@@ -301,13 +301,13 @@ footer {
           left: 0;
           margin-right: 20px;
           top: auto;
-          color: #ffbf00;
+          color: #dc3545;
         }
       }
     }
   }
   .footer-border {
-    background: #ffdcac;
+    background: #dde0e6;
     margin: 0 10%;
     height: 2px;
   }

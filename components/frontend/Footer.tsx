@@ -15,11 +15,11 @@ const Footer = () => {
                 <div className="col-md-9">
                     <div className="row mb-4">
                         <div className="col-md-4">
-                            <div className="text-warning font-weight-bold"><MdCall className="mr-1" /> CALL US ON LINE 1</div>
+                            <div className="text-danger font-weight-bold"><MdCall className="mr-1" /> CALL US ON LINE 1</div>
                             <Link href={'tel:(977)773-5384'} passHref><a className="phone-no">(977)773-5384</a></Link>
                         </div>
                         <div className="col-md-4">
-                            <div className="text-warning font-weight-bold"><MdCall className="mr-1" /> CALL US ON LINE 2</div>
+                            <div className="text-danger font-weight-bold"><MdCall className="mr-1" /> CALL US ON LINE 2</div>
                             <Link href={'tel:(977)773-5384'} passHref><a className="phone-no">(977)773-5384</a></Link>
                         </div>
                         <div className="col-md-4">

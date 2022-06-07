@@ -2,43 +2,11 @@ import MainLayout from "components/frontend/MainLayout"
 import { appName } from "app-config"
 import Head from "next/head"
 import Link from "next/link"
-import { useForm } from "react-hook-form"
-import { AuthService } from "services/user/auth.service"
-import { isFailure, isSuccess } from "@devexperts/remote-data-ts";
-import { useState } from "react"
-import { FormButton, FormInput } from "uiComponents/Form"
-import { IUserLoginApiRequest } from "services/user/auth.model"
-import { toast } from "react-toastify"
-import { useDispatch } from "react-redux"
-import { setUserDetails } from "state/slice/user.slice"
+import VehicleCard from "components/frontend/VehicleCard"
+import VehicleSearch from "components/frontend/VehicleSearch"
 
-export const Login: React.FC = () => {
-    const dispatch = useDispatch()
-    const {
-        register,
-        formState: { errors },
-        reset,
-        handleSubmit,
-    } = useForm<IUserLoginApiRequest>();
-    const [isProcessing, setIsProcessing] = useState(false)
+export const SearchPage: React.FC = () => {
 
-    const handleForm = async (data: IUserLoginApiRequest) => {
-        setIsProcessing(true)
-        let result = await AuthService.userLogin(data)
-        setIsProcessing(false)
-        if (isSuccess(result)) {
-            if (result.value.successful && result.value.status === 'ACTIVE') {
-                toast.success(result.value.message)
-                if (result.value.data) {
-                    dispatch(setUserDetails(result.value.data))
-                }
-            } else {
-                toast.error(result.value.message)
-            }
-        } else if (isFailure(result)) {
-            toast.error(result.error.outcome)
-        }
-    }
 
     return <>
         <Head>
@@ -46,13 +14,14 @@ export const Login: React.FC = () => {
         </Head>
         <MainLayout >
 
-            <div className="bg-default">
-                <div className="search-pg-container">
-                    <div className="filters-container"></div>
+            <div className="container">
+                <div className="search-page-container">
+                    <div className="filters-container">
+                        <VehicleSearch />
+                    </div>
                     <div className="results-container">
-                        <div className="white-card">
-                            
-                        </div>
+                        <VehicleCard />
+                        <VehicleCard />
                     </div>
                 </div>
             </div>
@@ -61,4 +30,4 @@ export const Login: React.FC = () => {
     </>
 }
 
-export default Login
+export default SearchPage

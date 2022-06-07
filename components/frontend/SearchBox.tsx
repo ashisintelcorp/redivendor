@@ -2,7 +2,7 @@ import { Modal } from "uiComponents/Modal"
 
 export const SearchBox: React.FC<{
     modal?: boolean;
-    setModal: (flag: boolean) => void;
+    setModal?: (flag: boolean) => void;
 }> = ({ modal = false, setModal = () => { } }) => {
     return <>
         <form className="dark-form">
