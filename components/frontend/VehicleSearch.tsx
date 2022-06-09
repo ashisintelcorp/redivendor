@@ -1,7 +1,19 @@
+import { isSuccess } from "@devexperts/remote-data-ts"
+import { CarService } from "services/car/index.service"
 
 const VehicleSearch = () => {
 
-    return <form className='white-card overflow-hidden vehicle-search'>
+    const SearchVehicle = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        const result = await CarService.carTypes()
+        if (isSuccess(result)) {
+            if (result.value.successful) {
+                console.log(result.value.data)
+            }
+        }
+    }
+
+    return <form onSubmit={e => SearchVehicle(e)} className='white-card overflow-hidden vehicle-search'>
         <div className="form-group">
             <label htmlFor="">Picking Up Location</label>
             <input type="text" className='form-control' />
