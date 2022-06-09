@@ -1,11 +1,17 @@
+import { useRouter } from "next/router";
 import { Modal } from "uiComponents/Modal"
 
 export const SearchBox: React.FC<{
     modal?: boolean;
     setModal?: (flag: boolean) => void;
 }> = ({ modal = false, setModal = () => { } }) => {
+    const router = useRouter()
+    const SearchVehicle = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        router.push('/search')
+    }
     return <>
-        <form className="dark-form">
+        <form onSubmit={e => SearchVehicle(e)} className="dark-form">
             <div className="dark-form-header d-flex flex-wrap p-3">
                 <div className="icon"><img src="/images/home-car.png" alt="" /></div>
                 <div className="text d-flex align-items-start flex-column justify-content-center">

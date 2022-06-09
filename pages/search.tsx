@@ -7,7 +7,6 @@ import VehicleSearch from "components/frontend/VehicleSearch"
 
 export const SearchPage: React.FC = () => {
 
-
     return <>
         <Head>
             <title>Search - {appName}</title>
