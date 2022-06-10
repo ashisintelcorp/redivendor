@@ -25,3 +25,11 @@ export const validateEmail = (email: string): boolean => {
 export const validateMobile = (mobile: string | number): boolean => {
     return /^[0-9]{10}$/gi.test(mobile.toString());
 };
+
+export const bookMinTime = () => {
+    let dt = new Date()
+    let newDt = new Date(new Date(dt).setHours(dt.getHours() + 2))
+    newDt = new Date(new Date(newDt).setMinutes(Math.ceil(newDt.getMinutes() / 10) * 10))
+    newDt = new Date(new Date(newDt).setSeconds(0))
+    return newDt
+};

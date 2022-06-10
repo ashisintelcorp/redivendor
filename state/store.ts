@@ -3,14 +3,15 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import { combineReducers } from "redux";
 import user from "./slice/user.slice";
+import car from "./slice/car.slice";
 import { appName } from "app-config";
 
 const middlewareConfiguration = { serializableCheck: false };
-const reducers = combineReducers({ user });
+const reducers = combineReducers({ user, car });
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: [],
+  blacklist: ['car'],
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 

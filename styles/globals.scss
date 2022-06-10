@@ -1,6 +1,7 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
-@import "react-toastify/dist/ReactToastify.css";
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
+@import "react-toastify/dist/ReactToastify.css";
+@import "react-datepicker/dist/react-datepicker.css";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 html,
 body {
@@ -46,7 +47,7 @@ a {
   }
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 
@@ -56,4 +57,8 @@ a {
     width: 100% !important;
     border-radius: 0.25rem;
   }
+}
+
+.react-datepicker-popper {
+  z-index: 9999999999 !important;
 }

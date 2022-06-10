@@ -16,8 +16,6 @@ const Home: NextPage = () => {
         <title>{appName}</title>
       </Head>
 
-      <Header />
-
       <section className="home-banner">
         <div className="container">
           <div className="section-inner">
@@ -64,7 +62,6 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <Footer />
     </>
   )
 }

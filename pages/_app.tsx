@@ -10,18 +10,22 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
 import { store } from "../state/store";
 import { ToastContainer } from 'react-toastify'
+import MainLayout from 'components/frontend/MainLayout'
 
 const persistor = persistStore(store, {}, function () {
   persistor.persist()
 })
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+
   return <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       {() => (
         <>
           <ToastContainer position="top-right" autoClose={5000} hideProgressBar newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-          <Component {...pageProps} />
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
         </>
       )}
     </PersistGate>
