@@ -1,36 +1,46 @@
-import Header from "components/frontend/Header"
-import MainLayout from "components/frontend/MainLayout"
-import { appName } from "app-config"
-import Head from "next/head"
-import Link from "next/link"
-import { Accordion } from "uiComponents/Accordion"
+import classNames from "classnames"
+import { useState } from "react"
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
-export const FaqPage: React.FC = () => {
+const data = [
+  { que: 'What is Directory Listing?', ans: 'Sed perspiciatis unde omnis natus error sit voluptatem totam rem aperiam, eaque quae architecto beatae explicabo. Lorem ipsum dolor sit amet, elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit.' },
+  { que: 'Do I have to commit to a yearly subscription?', ans: 'Sed perspiciatis unde omnis natus error sit voluptatem totam rem aperiam, eaque quae architecto beatae explicabo. Lorem ipsum dolor sit amet, elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit.' },
+  { que: 'How much time does it take to get approval?', ans: 'Sed perspiciatis unde omnis natus error sit voluptatem totam rem aperiam, eaque quae architecto beatae explicabo. Lorem ipsum dolor sit amet, elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit.' },
+  { que: 'Can I create a free listing?', ans: 'Sed perspiciatis unde omnis natus error sit voluptatem totam rem aperiam, eaque quae architecto beatae explicabo. Lorem ipsum dolor sit amet, elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit.' },
+  { que: 'How many different listings can I make?', ans: 'Sed perspiciatis unde omnis natus error sit voluptatem totam rem aperiam, eaque quae architecto beatae explicabo. Lorem ipsum dolor sit amet, elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit.' },
+  { que: 'What if I want to delete the listing?', ans: 'Sed perspiciatis unde omnis natus error sit voluptatem totam rem aperiam, eaque quae architecto beatae explicabo. Lorem ipsum dolor sit amet, elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit.' },
+  { que: 'How do I sign up to get a directory listing added?', ans: 'Sed perspiciatis unde omnis natus error sit voluptatem totam rem aperiam, eaque quae architecto beatae explicabo. Lorem ipsum dolor sit amet, elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit.' },
+  { que: 'What are the other features the Directory Listing have?', ans: 'Sed perspiciatis unde omnis natus error sit voluptatem totam rem aperiam, eaque quae architecto beatae explicabo. Lorem ipsum dolor sit amet, elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit.' },
 
-    return <>
-        <Head>
-            <title>FAQs - {appName}</title>
-        </Head>
-        <MainLayout pageName={<>Frequently <strong>Asked Questions</strong><br/><small className="text-muted">FIND YOUR ANSWER HERE</small></>}>
+]
 
-            <div className="row bg-default">
-                <div className="col-md-2"></div>
-                <div className="col-md-8 py-5">
-                    <div className="white-card">
-                        <Accordion data={[
-                            { title: 'How to reserved a car here? ', content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing dolgedo. ' },
-                            { title: 'How can i drop the rental car? ', content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing dolgedo. ' },
-                            { title: 'What happen if i crash the car? ', content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing dolgedo. ' },
-                            { title: 'How can i select a car rent? ', content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing dolgedo. ' },
-                            { title: 'Do you have VIP access to airport?  ', content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing dolgedo. ' },
-                        ]} />
-                    </div>
+const FaqSection = () => {
+  const [activeFaq, setActiveFaq] = useState(0)
+  return <>
+    <div className="faq-container bg-white">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-8">
+            <div className="faq-lists">
+              {data.map((item, key) => <div key={key} className={classNames("faq", { active: activeFaq === key })}>
+                <div onClick={() => setActiveFaq(key)} className="faq-icon">
+                  {activeFaq === key ? <AiOutlineMinus /> : <AiOutlinePlus />}
                 </div>
-                <div className="col-md-2"></div>
-            </div>
+                <div className="faq-content">
+                  <div onClick={() => setActiveFaq(key)} className="que">{item.que}</div>
+                  <div className="ans">{item.ans}</div>
+                </div>
+              </div>)}
 
-        </MainLayout>
-    </>
+            </div>
+          </div>
+          <div className="col-md-2"></div>
+        </div>
+
+      </div>
+    </div>
+  </>
 }
 
-export default FaqPage
+export default FaqSection

@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export const ContactPage: React.FC = () => {
 
-    return <MainLayout>
+    return <>
         <Head>
             <title>Contact Us - {appName}</title>
         </Head>
@@ -19,43 +19,43 @@ export const ContactPage: React.FC = () => {
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum adipisci recusandae praesentium dicta!</p>
                         <div className="info">
                             <div className="d-flex">
-                                <img height={26} src="images/icons/location.png" className="mr-2" alt="" />
+                                <img height={30} src="images/icons/map.png" className="mr-2" alt="" />
                                 <p>92 Cherry Drive Uniondale, NY 11553</p>
                             </div>
                             <div className="d-flex">
-                                <img height={26} src="images/icons/email.png" className="mr-2" alt="" />
+                                <img height={30} src="images/icons/email.png" className="mr-2" alt="" />
                                 <p>lorem@ipsum.com</p>
                             </div>
                             <div className="d-flex">
-                                <img height={26} src="images/icons/phone.png" className="mr-2" alt="" />
+                                <img height={26} src="images/icons/phone-call.png" className="mr-2" alt="" />
                                 <p>123-456-789</p>
                             </div>
                         </div>
                     </div>
-                    <form className="contact-form text-white">
-                        <h3>Contact us</h3>
+                    <form className="contact-form">
+                        <h3 className="text-light">Contact us</h3>
                         <div className="form-group">
-                            <label htmlFor="">Full Name</label>
+                            <label htmlFor="" className="text-light">Full Name</label>
                             <input type="text" className="form-control" placeholder="Enter your Name" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="">Mobile No.</label>
+                            <label htmlFor=""className="text-light">Mobile No.</label>
                             <input type="text" className="form-control" placeholder="Enter your mobile number" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="">Email ID</label>
+                            <label htmlFor=""className="text-light">Email ID</label>
                             <input type="text" className="form-control" placeholder="Enter your e-mail" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="">Message</label>
+                            <label htmlFor=""className="text-light">Message</label>
                             <textarea className="form-control" placeholder="Enter your message" />
                         </div>
-                        <button type="button" className="btn btn-warning">SEND MESSAGE</button>
+                        <button type="button" className="btn btn-success">SEND MESSAGE</button>
                     </form>
                 </div>
             </div>
         </div>
-    </MainLayout>
+    </>
 
 }
 

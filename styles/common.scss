@@ -1,5 +1,5 @@
 .web-header {
-  background: #edf1f7;
+  background: #fff;
   box-shadow: 3px 3px 9px rgba(164, 164, 186, 0.2);
   position: fixed;
   top: 0;
@@ -77,13 +77,13 @@
             }
           }
           button {
-            box-shadow: 3px 3px 9px rgba(164, 164, 186, 0.3);
+            box-shadow: 3px 3px 9px rgba(134, 57, 133, 0.3);
             width: 40px;
             position: relative;
             height: 40px;
             border-radius: 14px;
             background-color: #fff;
-            color: #007bff;
+            color: #001eff;
             border: 0;
           }
           ul {
@@ -340,4 +340,14 @@
       background-color: #6cc4ff;
     }
   }
+}
+
+.single-category-box {
+  margin-bottom:45px;
+  box-shadow: 5px 5px #0069d9;
+  border: 3px solid #0069d9;
+  border-radius: 1px;
+  text-align: center;
+  background-color:white;
+  padding: 20px 6px;
 }

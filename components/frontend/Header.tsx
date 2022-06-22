@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { AiOutlineUser } from 'react-icons/ai'
 import { BiSupport } from 'react-icons/bi'
+import { AiOutlinePlus } from "react-icons/ai"
+
 
 const Header = () => {
 
@@ -16,6 +18,10 @@ const Header = () => {
                             <li><Link href={'/faq'}>FAQ</Link></li>
                             <li><Link href={'/about'}>About</Link></li>
                             <li><Link href={'/contact'}>Contact</Link></li>
+                            <li><Link href={'/contact'}>Listings</Link></li>
+                            {/* <li><Link href={'/add-listing'}>Add Listings</Link></li> */}
+
+
                         </ul>
                         <div className="nav-two-section">
                             <div className="support">
@@ -31,6 +37,13 @@ const Header = () => {
                                     <li><Link href={'/login/user'}>Login</Link></li>
                                     <li><Link href={'/register/user'}>Create new account</Link></li>
                                 </ul>
+                            </div>
+                            <div className="roundbtn">
+                                <Link href={'/add-listing'}passHref>      
+                                <a className='default-btn'>
+                                <button className='btn-lg'><AiOutlinePlus/>Add Listing</button>
+                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

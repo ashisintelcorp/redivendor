@@ -10,7 +10,7 @@
   &.inner-page {
     // min-height: 300px;
     .page-title {
-      color: #eee;
+      color:#ddd;
       letter-spacing: 2.5px;
       margin-top: 40px;
       padding: 60px;
@@ -26,7 +26,7 @@
     content: "";
   }
   header {
-    background: #fff;
+    background: rgb(239, 239, 239);
     border-radius: 5px;
     .nav-container {
       display: flex;
@@ -178,7 +178,7 @@
   overflow: hidden;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   .dark-form-header {
-    background: #000;
+    background:#0d0dfb;
     color: #ffffff;
     .icon {
       width: 50px;
@@ -191,12 +191,12 @@
     }
     .text {
       .title {
-        color: #ffcd00;
+        color:#ffffff;
         font-size: 22px;
         letter-spacing: 1.5px;
       }
       .subtitle {
-        color: #ccc;
+        color: #fff;
         font-size: 14px;
       }
     }
@@ -221,9 +221,9 @@
   display: flex;
   justify-content: space-between;
   margin: 70px auto;
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 3px 3px 6px rgba(164, 11, 11, 0.16);
   position: relative;
   .contact-info {
     background: #fff;
@@ -235,7 +235,7 @@
       position: absolute;
       width: 170px;
       height: 170px;
-      border: 22px solid #1abc9c;
+      border: 22px solid  #0069d9;
       border-radius: 50%;
       bottom: -103px;
       right: 50px;
@@ -246,14 +246,18 @@
   .contact-form {
     width: 50%;
     padding: 40px;
-    background: rgb(0, 49, 68);
+    background: #0069d9;
     position: relative;
+
+    ::placeholder {
+      color: rgb(0, 0, 0);
+    }
     &::before {
       position: absolute;
       content: "";
       width: 30px;
       height: 30px;
-      background: rgb(0, 49, 68);
+      background: #0069d9;
       top: 41px;
       left: -15px;
       transform: rotate(45deg);
@@ -262,13 +266,17 @@
     }
     button {
       border-radius: 20px;
+    
     }
     input {
       border-radius: 20px;
       height: 42px;
+      background: #fff;
     }
     textarea {
       min-height: 100px;
+      background: #fff;
+
     }
   }
 }
@@ -284,7 +292,7 @@ footer {
   }
   a {
     &:hover {
-      color: #dc3545;
+      color: #0032fb;
     }
   }
   ul.links {
@@ -301,7 +309,7 @@ footer {
           left: 0;
           margin-right: 20px;
           top: auto;
-          color: #dc3545;
+          color: #3d35dc;
         }
       }
     }
@@ -321,7 +329,7 @@ footer {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: linear-gradient(to bottom, #22dbb6, #1abc9c);
+  background: linear-gradient(to bottom, #0069d9, #0069d9);
   bottom: 50%;
   right: 50%;
   transform: translate(-40%, 38%);

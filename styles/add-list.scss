@@ -1,0 +1,51 @@
+.main{
+padding-top:50px;
+}
+.head
+{
+    text-align: center;
+    margin-left: 100px;
+    
+}
+.rot{
+    margin-left: 300px;
+    margin-right: 300px;
+    h3{
+        font-weight:bolder;
+        font-size: 30px;
+        color: #334e6f;
+    }
+    .theme-cl{
+        color: rgb(0, 58, 166);
+          margin-left:58vh;
+          padding-bottom:50px;
+            }
+            label{
+                font-weight: bold;
+                font-size:15px;
+                color:#7c7d8b;
+            }
+            .fff{
+                height: 50px;
+                width:100%;
+                border: 1px solid #6786a6;
+                border:1px solid #6786a6;
+               
+                &:hover{
+                    border:1px solid blue;
+                    box-shadow: 0 0 10px #267e8f;
+                }
+              
+            }
+           .pp{
+            outline: none !important;
+            border:1px solid #6786a6;
+            height: 50px;
+            width:100%;
+           }
+           &:hover{
+            border:1px solid blue;
+            box-shadow: 0 0 10px #267e8f;
+
+        }
+}
