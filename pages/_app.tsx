@@ -4,6 +4,9 @@ import '../styles/common.scss'
 import '../styles/add-list.scss'
 import '../styles/uiComponents/dashboard.scss'
 import '../styles/search-page.scss'
+import '../styles/about.scss'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import '../styles/uiComponents/Accordion.scss'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'

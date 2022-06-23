@@ -26,6 +26,7 @@ export const AddListing: React.FC = () => {
                     <IoMdCopy size={50} />
                 </i>
                 <h3 className="text-center mb-5 pt-4">General Listing</h3>
+                <h5 className="mb-2  text-center">Write Something General Information About Your Listing</h5>
                 <div className="row">
 
                     <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Keyword" placeholder="" register={undefined} />
@@ -184,98 +185,100 @@ export const AddListing: React.FC = () => {
                 </i>
                 <h3 className="text-center mb-5 pt-4">Opening Hours</h3>
                 <div className="row">
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+         
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
+                        <option value="0">Opening Time</option>
+                        <option value="0">Eat&Drink</option>
+                        <option value="0">Restaurant</option>
+                        <option value="0">Fitness</option>
+                        <option value="0">Hospital</option>
+                    </FormSelect>   
+                    
+                 <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
-                        <option value="0">Opening Time</option>
-                        <option value="0">Eat&Drink</option>
-                        <option value="0">Restaurant</option>
-                        <option value="0">Fitness</option>
-                        <option value="0">Hospital</option>
-                    </FormSelect>
-                    <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
+                    <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>
                         <option value="0">Opening Time</option>
                         <option value="0">Eat&Drink</option>
                         <option value="0">Restaurant</option>

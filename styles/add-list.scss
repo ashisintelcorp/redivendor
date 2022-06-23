@@ -17,7 +17,7 @@ padding-top:50px;
     }
     .theme-cl{
         color: rgb(0, 58, 166);
-          margin-left:58vh;
+          margin-left:55vh;
           padding-bottom:50px;
             }
             label{
@@ -29,7 +29,7 @@ padding-top:50px;
                 height: 50px;
                 width:100%;
                 border: 1px solid #6786a6;
-                border:1px solid #6786a6;
+           
                
                 &:hover{
                     border:1px solid blue;
@@ -85,6 +85,7 @@ padding-top:50px;
     padding: 16px 40px;
     margin-bottom:20px;
     margin-top:20px;
+    margin-left:95vh;
    
     .btn{
     border-radius: 2px;
@@ -96,4 +97,16 @@ padding-top:50px;
     white-space: nowrap;
     margin-right:150px;
     }
+}
+
+.pg{
+    height: 50px;
+    width:100%;
+    border: 1px solid #6786a6;
+
+}
+h5{
+    font-weight: bolder;
+    color: #3c3d49;
+    margin-top:-30px;
 }
