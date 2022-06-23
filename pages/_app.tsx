@@ -5,6 +5,7 @@ import '../styles/add-list.scss'
 import '../styles/uiComponents/dashboard.scss'
 import '../styles/search-page.scss'
 import '../styles/uiComponents/Accordion.scss'
+import "../styles/listing.scss"
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'

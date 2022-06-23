@@ -18,7 +18,7 @@ const Header = () => {
                             <li><Link href={'/faq'}>FAQ</Link></li>
                             <li><Link href={'/about'}>About</Link></li>
                             <li><Link href={'/contact'}>Contact</Link></li>
-                            <li><Link href={'/contact'}>Listings</Link></li>
+                            <li><Link href={'/listings'}>Listings</Link></li>
                             {/* <li><Link href={'/add-listing'}>Add Listings</Link></li> */}
 
 
