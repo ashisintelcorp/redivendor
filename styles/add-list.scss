@@ -48,4 +48,52 @@ padding-top:50px;
             box-shadow: 0 0 10px #267e8f;
 
         }
+        .row1{
+            display: grid;
+            grid-gap: 15px;
+            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(calc(100% /3 - 20px), 1fr));
+        }
+       
+        .form-check-input{
+            width:33px;
+            height:18px;
+            margin-left:-2px;
+            margin-top:2px;
+        }
+      
+        
+        label{
+            font-weight: bold;
+            font-size: 15px;
+     
+            
+        }
+       
+        .lb{
+            font-weight: bold;
+            font-size: 15px;
+            padding-left: 20px;
+        }
+}
+
+.theme-btn{
+    background: #1e29ff;
+    border: 1px solid #1e4fff;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    margin-bottom:20px;
+    margin-top:20px;
+   
+    .btn{
+    border-radius: 2px;
+    box-shadow: none;
+    font-weight: 400;    
+    font-size: 15px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    margin-right:150px;
+    }
 }
