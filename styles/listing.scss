@@ -1,0 +1,181 @@
+.section-listing {
+    padding: 70px 0 70px;
+
+    .heading {
+        padding: 0px 0 20px 0;
+        margin-bottom: 0px;
+        text-align: center;
+
+        h2 {
+            font-weight: 600;
+            font-size: 36px;
+            color: #334e6f;
+
+            span {
+                color: #ff431e;
+            }
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 15px;
+            position: relative;
+            text-transform: capitalize;
+            transition: .2s ease-in;
+            margin: 0 0 10px;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+    }
+
+    .listing-shot {
+        border: 1px solid #eaeff5;
+        box-shadow: 0px 0px 10px 1px rgb(71 85 95 / 8%);
+        overflow: hidden;
+        position: relative;
+
+        .listing-badge {
+            &.now-open {
+                background-color: #54ba1d;
+            }
+
+            background-color: #333;
+            float: left;
+            position: absolute;
+            transform: rotate(-45deg);
+            left: -60px;
+            top: 30px;
+            text-align: center;
+            width: 200px;
+            font-size: 12.5px;
+            margin: 0;
+            z-index: 999;
+            color: #fff;
+            font-weight: 500;
+            line-height: 28px;
+        }
+
+        a,
+        a:active,
+        a:focus,
+        a:hover {
+            color: #334e6f;
+            outline: none;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+
+            .listing-shot-img {
+                max-height: 200px;
+                height: 200px;
+                overflow: hidden;
+                position: relative;
+                min-height: 220px;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    -webkit-transition: all 0.6s ease-out 0s;
+                    -moz-transition: all 0.6s ease-out 0s;
+                    transition: all 0.6s ease-out 0s;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    -webkit-transition: all 0.6s ease-out 0s;
+                    -moz-transition: all 0.6s ease-out 0s;
+                    transition: all 0.6s ease-out 0s;
+                }
+
+                img {
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                span.approve-listing {
+                    width: 25px;
+                    height: 25px;
+                    background: #10aa08;
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    border-radius: 50%;
+                    color: #ffffff;
+                    text-align: center;
+                    font-size: 10px;
+                    border: 2px solid #9fd402;
+                    line-height: 21px;
+                }
+            }
+
+            .listing-shot-caption,
+            .listing-shot-info {
+                padding: 10px 15px;
+                position: relative;
+            }
+
+            .listing-shot-caption {
+                h4 {
+                    margin-bottom: 3px;
+                    font-size: 17px;
+                    font-weight: 500;
+                    margin-top: 0;
+                    font-family: 'Poppins', sans-serif;
+                    color: #334e6f;
+                }
+
+                p {
+                    position: relative;
+                    text-transform: capitalize;
+                    line-height: 1.8;
+                    transition: .2s ease-in;
+                }
+
+                span.like-listing {
+                    i {
+                        background: #ff431e;
+                        border: 1px solid transparent;
+                        text-align: center;
+                        line-height: 42px;
+                        width: 42px;
+                        height: 42px;
+                        border-radius: 50%;
+                        color: #ffffff;
+                        font-size: 17px;
+                    }
+
+                    .style-2 {
+                        top: -20px;
+                    }
+
+                    position: absolute;
+                    right: 20px;
+                    bottom: 20px;
+                }
+            }
+        }
+
+        .listing-shot-info {
+            padding: 10px 15px;
+            position: relative;
+
+            .listing-detail-info span {
+                display: block;
+                color: #667582;
+                margin-bottom: 7px;
+            }
+        }
+
+    }
+}
