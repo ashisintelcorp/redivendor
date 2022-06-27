@@ -6,19 +6,14 @@ import { IoMdCopy } from 'react-icons/io'
 import { ImGift, ImLocation } from 'react-icons/im'
 import { BsPencilSquare } from 'react-icons/bs'
 import { AiOutlineClockCircle } from 'react-icons/ai'
-
-
-
-
 import { FormButton, FormInput, FormSelect, FormTextarea } from "uiComponents/Form"
+import { RiGalleryFill } from "react-icons/ri"
 
 export const AddListing: React.FC = () => {
     return <>
         <Head>
-            <title>Add Vehicle - {appName}</title>
+            <title>Add Listing - {appName}</title>
         </Head>
-
-
         <h1 className="text-center main">Add Listing</h1>
         <form>
             <div className="white-card rot">
@@ -26,20 +21,20 @@ export const AddListing: React.FC = () => {
                     <IoMdCopy size={50} />
                 </i>
                 <h3 className="text-center mb-5 pt-4">General Listing</h3>
-                <h5 className="mb-2  text-center">Write Something General Information About Your Listing</h5>
+                <h5 className="mb-5 text-center">Write Something General Information About Your Listing</h5>
                 <div className="row">
 
-                    <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Keyword" placeholder="" register={undefined} />
+                    <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Listing Title" placeholder="" register={undefined} />
                     <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Keyword" placeholder="" register={undefined} />
                     <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
                         <option value="0">select</option>
                         <option value="0">Eat&Drink</option>
-                        <option value="0">Restaurant</option>
+                          <option value="0">Restaurant</option>
                         <option value="0">Fitness</option>
                         <option value="0">Hospital</option>
                     </FormSelect>
                     <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Website" placeholder="" register={undefined} />
-
+ 
                 </div>
             </div>
             <div className="white-card rot">
@@ -47,6 +42,8 @@ export const AddListing: React.FC = () => {
                     <ImLocation size={50} />
                 </i>
                 <h3 className="text-center mb-5 pt-4">Add Location</h3>
+                <h5 className="mb-5 text-center">Write Something General Information About Your Listing</h5>
+
                 <div className="row">
                     <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Address" placeholder="" register={undefined} />
                     <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Temporary Address" placeholder="" register={undefined} />
@@ -74,6 +71,8 @@ export const AddListing: React.FC = () => {
                     <BsPencilSquare size={50} />
                 </i>
                 <h3 className="text-center mb-5 pt-4">Full Details</h3>
+                <h5 className="mb-5  text-center">Write Something General Information About Your Listing</h5>
+
                 <div className="row">
                     <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Owner Name" placeholder="" register={undefined} />
                     <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Email" placeholder="" register={undefined} />
@@ -88,11 +87,23 @@ export const AddListing: React.FC = () => {
                     <FormTextarea className="fff" wrapperClasses="form-group col-md-12" label="Description" placeholder="" register={undefined} />
                 </div>
             </div>
+            <div className="white-card rot check">
+			<i className="theme-cl">
+                    <RiGalleryFill size={50}/>
+                </i>			
+			<h3 className="text-center mb-5 pt-4">Add Gallery</h3>      
+                <h5 className="mb-5 text-center">Write Something General Information About Your Listing</h5>	
+                <form className="dropzone">			
+                <input type="file" multiple/>
+                </form>			
+						</div>
             <div className="white-card rot check ">
                 <i className="theme-cl">
                     <ImGift size={50} />
                 </i>
-                <h3 className="text-center mb-5 pt-4">Amenities</h3>
+                <h3 className="text-center mb-5 pt-4">Services</h3>
+                <h5 className="mb-5 text-center">Write Something General Information About Your Listing</h5>
+
                 <div className="row1">
                     <div className="form-check">
                         <input className="form-check-input d-block" type="checkbox" value="" id="flexCheckDefault" />
@@ -183,7 +194,9 @@ export const AddListing: React.FC = () => {
                 <i className="theme-cl">
                     <AiOutlineClockCircle size={50}/>
                 </i>
-                <h3 className="text-center mb-5 pt-4">Opening Hours</h3>
+                <h3 className="text-center mb-5 pt-3">Opening Hours</h3>
+                <h5 className="text-center mb-5">Write Something General Information About Your Listing</h5>
+
                 <div className="row">
          
                     <FormSelect className="pg" wrapperClasses="form-group col-md-6" label="" register={undefined}>

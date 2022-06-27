@@ -8,9 +8,9 @@ function logoArr(_start_: number, _end_: number) {
 
 const insureCard=[
     {icon:"https://jthemes.net/themes/html/royalcars/assets/images/offer-icon-5.png",title:"Million Staffs",text:"Our staff can picking you anywhere anytime"},
-    {icon:"https://jthemes.net/themes/html/royalcars/assets/images/offer-icon-6.png",title:"Free Insurance",text:"Rent a car 3 days & get free insurance"},
-    {icon:"https://jthemes.net/themes/html/royalcars/assets/images/offer-icon-7.png",title:"Trusted Rent",text:"We working since 1980 with 4.000 customers"},
-    {icon:"https://jthemes.net/themes/html/royalcars/assets/images/offer-icon-8.png",title:"All Type Cars",text:"We have all brand & type cars in our garage"},
+    {icon:"/images/icons8-bbb.svg",title:"Free Insurance",text:"Rent a car 3 days & get free insurance"},
+    {icon:"/images/icons8-bbb.svg",title:"Trusted Rent",text:"We working since 1980 with 4.000 customers"},
+    {icon:"/images/icons8-bbb.svg",title:"All Type Cars",text:"We have all brand & type cars in our garage"},
 ]
 
 const custCard=[{icon:"https://jthemes.net/themes/html/royalcars/assets/images/icon-happy-customer.png",number:"1.172.700",title:"HAPPY CUSTOMERS"},
@@ -85,7 +85,7 @@ const about = (props: Props) => {
                         {custCard.map((item, key) => <div key={key} className="col-lg-3 col-md-4 col-sm-6">
                             <div className="r-counter-box">
                                 <div className="r-counter-icon">
-                                    <img src={item.icon} alt="" className="img-fluid" />
+                                    <img src={item.icon} alt="" className="img-fluid" style={{color: "#fff"}} />
                                 </div>
                                 <div className="r-counts">
                                     {item.number}

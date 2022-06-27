@@ -34,12 +34,12 @@ const Header = () => {
                             <div className="account">
                                 <button><AiOutlineUser size={24} /></button>
                                 <ul>
-                                    <li><Link href={'/login/user'}>Login</Link></li>
-                                    <li><Link href={'/register/user'}>Create new account</Link></li>
+                                    <li><Link href={'/login/user-login'}>Login</Link></li>
+                                    <li><Link href={'/vendor-details'}>Create new account</Link></li>
                                 </ul>
                             </div>
                             <div className="roundbtn">
-                                <Link href={'/add-listing'}passHref>      
+                                <Link href={'/add-listing'}passHref>
                                 <a className='default-btn'>
                                 <button className='btn-lg'><AiOutlinePlus/>Add Listing</button>
                                 </a>

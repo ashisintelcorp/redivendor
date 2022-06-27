@@ -209,7 +209,7 @@
     input,
     select {
       background: #333;
-      color: #fff;
+      color: rgb(4, 3, 3);
       border: 0;
       height: 42px;
     }
@@ -235,7 +235,7 @@
       position: absolute;
       width: 170px;
       height: 170px;
-      border: 22px solid  #0069d9;
+      border: 22px solid #0080d2;
       border-radius: 50%;
       bottom: -103px;
       right: 50px;
@@ -246,7 +246,7 @@
   .contact-form {
     width: 50%;
     padding: 40px;
-    background: #0069d9;
+    background: #0080d2;
     position: relative;
 
     ::placeholder {
@@ -257,7 +257,7 @@
       content: "";
       width: 30px;
       height: 30px;
-      background: #0069d9;
+      background: #0080d2;
       top: 41px;
       left: -15px;
       transform: rotate(45deg);
@@ -309,7 +309,7 @@ footer {
           left: 0;
           margin-right: 20px;
           top: auto;
-          color: #3d35dc;
+          color:#0080d2;
         }
       }
     }
@@ -329,7 +329,7 @@ footer {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: linear-gradient(to bottom, #0069d9, #0069d9);
+  background: linear-gradient(to bottom,#0080d2,#0080d2);
   bottom: 50%;
   right: 50%;
   transform: translate(-40%, 38%);
@@ -343,4 +343,8 @@ footer {
     top: calc(50% - 180px);
     left: calc(50% - 180px);
   }
+}
+.jj{
+  border-radius: 20px;
+  height: 40px;
 }

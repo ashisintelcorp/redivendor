@@ -23,7 +23,7 @@ const Footer = () => {
                             <Link href={'tel:(977)773-5384'} passHref><a className="phone-no">(977)773-5384</a></Link>
                         </div>
                         <div className="col-md-4">
-                            <Link href={'tel:(977)773-5384'} passHref><a className="h-100 d-flex align-items-center justify-content-center flex-wrap btn btn-primary btn-block"><RiRoadMapLine size={30} className="mr-2"/>{appName} on Map</a></Link>
+                            <Link href={'tel:(977)773-5384'} passHref><a className="h-100 d-flex align-items-center justify-content-center flex-wrap btn btn-primary mn btn-block"><RiRoadMapLine size={30} className="mr-2"/>{appName} on Map</a></Link>
                         </div>
                     </div>
                     <div className="row">

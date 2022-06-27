@@ -40,6 +40,9 @@
                     display: block;
                     font-size: 13px;
                 }
+                &:last-child {
+                    border: 0;
+                  }
             }
 
             list-style: none;
@@ -67,7 +70,7 @@
             display: block;
             width: 40px;
             height: 3px;
-            background: #ffcc00;
+            background: #0080d2;
             margin-top: 18px;
         }
     }
@@ -121,7 +124,7 @@
                 max-width: 200px;
 
                 .name {
-                    border-left: solid 3px #ffcd00;
+                    border-left: solid 3px #0080d2;
                     font-size: 18px;
                     margin-bottom: 20px;
                     line-height: 23px;
@@ -156,7 +159,7 @@
 // get in touch section
 
 .r-get-in-touch {
-    background: url(https://jthemes.net/themes/html/royalcars/assets/images/keep-in-touch.jpg) left top no-repeat;
+    background: url(/images/wp2752752.jpg) left top no-repeat;
     background-repeat: no-repeat;
     padding: 170px 0 150px;
     background-size: cover;
@@ -168,7 +171,7 @@
                 font-weight: 700;
             }
 
-            color: #ffcd00;
+            color:#fff  ;
             padding-top: 20px;
             font-weight: 300;
             font-size: 40px;
@@ -192,7 +195,7 @@
 
         .text-center {
             button {
-                background: #ffcd00;
+                background:#0080d2;
                 color: #fff;
                 width: 100%;
                 cursor: pointer;
@@ -282,11 +285,15 @@
         padding-left: 80px;
 
         .r-counter-icon {
+            color:#fff;
             width: 60px;
             height: 60px;
             position: absolute;
             left: 0;
             top: 0;
+            img {
+                filter: invert(31%) sepia(90%) saturate(1300%) hue-rotate(179deg) brightness(90%) contrast(100%);
+                }
         }
 
         .r-counts {
@@ -317,6 +324,9 @@
     .r-insurance-box {
         .icon {
             margin-bottom: 10px;
+            img {
+                filter: invert(31%) sepia(90%) saturate(1300%) hue-rotate(179deg) brightness(90%) contrast(100%);
+                }
         }
 
         font-size: 13px;
@@ -344,7 +354,7 @@
                 }
             }
 
-            background: #ffcd00;
+            background: #0080d2;
             color: #fff;
         }
 
@@ -362,6 +372,6 @@
     font-weight: 500;
     line-height: 32px;
     padding: 0 0 0 30px;
-    border-left: solid 3px #ffcd00;
+    border-left: solid 3px #0080d2;
     }
 }

@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import '../styles/uiComponents/Accordion.scss'
 import "../styles/listing.scss"
 import "../styles/listing-details.scss"
+import "../styles/login.scss"
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
