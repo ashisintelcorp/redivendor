@@ -18,12 +18,11 @@ export const AddListing: React.FC = () => {
         <form>
             <div className="white-card rot">
                 <i className="theme-cl">
-                    <IoMdCopy size={50} />
+                    <IoMdCopy size={50}/>
                 </i>
                 <h3 className="text-center mb-5 pt-4">General Listing</h3>
                 <h5 className="mb-5 text-center">Write Something General Information About Your Listing</h5>
                 <div className="row">
-
                     <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Listing Title" placeholder="" register={undefined} />
                     <FormInput className="fff" wrapperClasses="form-group col-md-6" label="Keyword" placeholder="" register={undefined} />
                     <FormSelect className="pp" wrapperClasses="form-group col-md-6" label="Category" register={undefined}>
