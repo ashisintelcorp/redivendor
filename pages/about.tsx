@@ -1,7 +1,6 @@
 import { concatAll } from 'fp-ts/lib/Magma';
 import React from 'react'
 import Slider from "react-slick";
-import {RiFacebookFill,RiInstagramFill,RiTwitterFill} from "react-icons/ri"
 
 function logoArr(_start_: number, _end_: number) {
     return (new Array(_end_ - _start_ + 1)).fill(undefined).map((_, k) => k + _start_);
@@ -9,9 +8,9 @@ function logoArr(_start_: number, _end_: number) {
 
 const insureCard=[
     {icon:"https://jthemes.net/themes/html/royalcars/assets/images/offer-icon-5.png",title:"Million Staffs",text:"Our staff can picking you anywhere anytime"},
-    {icon:"https://jthemes.net/themes/html/royalcars/assets/images/offer-icon-6.png",title:"Free Insurance",text:"Rent a car 3 days & get free insurance"},
-    {icon:"https://jthemes.net/themes/html/royalcars/assets/images/offer-icon-7.png",title:"Trusted Rent",text:"We working since 1980 with 4.000 customers"},
-    {icon:"https://jthemes.net/themes/html/royalcars/assets/images/offer-icon-8.png",title:"All Type Cars",text:"We have all brand & type cars in our garage"},
+    {icon:"/images/icons8-bbb.svg",title:"Free Insurance",text:"Rent a car 3 days & get free insurance"},
+    {icon:"/images/icons8-bbb.svg",title:"Trusted Rent",text:"We working since 1980 with 4.000 customers"},
+    {icon:"/images/icons8-bbb.svg",title:"All Type Cars",text:"We have all brand & type cars in our garage"},
 ]
 
 const custCard=[{icon:"https://jthemes.net/themes/html/royalcars/assets/images/icon-happy-customer.png",number:"1.172.700",title:"HAPPY CUSTOMERS"},
@@ -86,7 +85,7 @@ const about = (props: Props) => {
                         {custCard.map((item, key) => <div key={key} className="col-lg-3 col-md-4 col-sm-6">
                             <div className="r-counter-box">
                                 <div className="r-counter-icon">
-                                    <img src={item.icon} alt="" className="img-fluid" />
+                                    <img src={item.icon} alt="" className="img-fluid" style={{color: "#fff"}} />
                                 </div>
                                 <div className="r-counts">
                                     {item.number}
@@ -107,14 +106,14 @@ const about = (props: Props) => {
                             <div className="r-driver-detail">
                                 <div className="r-head">Roberto Garcia <span>5 Years Experienced as Driver</span></div>
                                 <div className="r-driver-text">We know the difference is in the details and that’s why our car rental services, in the tourism and business industry, stand out for their quality and good taste.</div>
-                                <div className="r-driver-icon">
+                                {/* <div className="r-driver-icon">
                                     <ul>
                                         <li><i className="fa fa-facebook" aria-hidden="true"></i> <span>facebook</span></li>
                                         <li><i className="fa fa-twitter" aria-hidden="true"></i> <span>twitter</span></li>
                                         <li><i className="fa fa-behance" aria-hidden="true"></i> <span>behance</span></li>
                                         <li><i className="fa fa-google-plus" aria-hidden="true"></i> <span>Google+</span></li>
                                     </ul>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -125,11 +124,11 @@ const about = (props: Props) => {
                                     <div className="r-drivers-detail">
                                         <div className="name">{item.name.split(" ")[0]} <br />{item.name.split(" ")[1]}</div>
                                         <div className="text">{item.exp} Years Experience</div>
-                                        <div className="soc">
+                                        {/* <div className="soc">
                                             <a href="#" className=''><RiFacebookFill/></a>
                                             <a href="#"><RiTwitterFill /></a>
                                             <a href="#"><RiInstagramFill/></a>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div className="drivers-img">
                                         <img src={item.avatar} className="img-fluid d-block m-auto" alt="" />

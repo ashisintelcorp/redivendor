@@ -4,9 +4,13 @@ import '../styles/common.scss'
 import '../styles/add-list.scss'
 import '../styles/uiComponents/dashboard.scss'
 import '../styles/search-page.scss'
+import '../styles/about.scss'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import '../styles/uiComponents/Accordion.scss'
 import "../styles/listing.scss"
 import "../styles/listing-details.scss"
+import "../styles/login.scss"
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'

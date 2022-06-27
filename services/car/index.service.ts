@@ -1,6 +1,6 @@
 import { RemoteData, remoteData } from "@devexperts/remote-data-ts";
 import { ICarTypesApiResponse } from "models/car";
-import apiClientRequest from "utils/api/api-client.util"
+// import apiClientRequest from "utils/api/api-client.util"
 import { APIError } from "utils/api/errors";
 
 export namespace CarService {

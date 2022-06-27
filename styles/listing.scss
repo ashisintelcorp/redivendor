@@ -51,7 +51,7 @@
             width: 200px;
             font-size: 12.5px;
             margin: 0;
-            z-index: 999;
+            z-index:99;
             color: #fff;
             font-weight: 500;
             line-height: 28px;
@@ -143,25 +143,25 @@
                 }
 
                 span.like-listing {
+                
                     i {
                         background: #ff431e;
                         border: 1px solid transparent;
                         text-align: center;
-                        line-height: 42px;
-                        width: 42px;
-                        height: 42px;
+                        line-height:42px;
+                        width:42px;
+                        height:45px;
                         border-radius: 50%;
                         color: #ffffff;
-                        font-size: 17px;
+                        font-size:17px; 
+                        position: absolute;
+                        right: 20px;
+                        bottom: 24px;
+                        top: -23px;
                     }
 
-                    .style-2 {
-                        top: -20px;
-                    }
 
-                    position: absolute;
-                    right: 20px;
-                    bottom: 20px;
+                   
                 }
             }
         }

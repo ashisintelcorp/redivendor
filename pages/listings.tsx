@@ -1,4 +1,6 @@
 import React from 'react'
+import { FaCheck, FaHeart,FaRegHeart } from 'react-icons/fa';
+import { RiPhoneFill } from 'react-icons/ri';
 
 const listings = () => {
     return (
@@ -20,19 +22,19 @@ const listings = () => {
                                 <a href="listing-detail.html">
                                     <div className="listing-shot-img">
                                         <img src="https://codeminifier.com/listing-hub/listing/assets/img/category/art.jpg" className="img-responsive" alt="" />
-                                            <span className="approve-listing"><i className="fa fa-check"></i></span>
+                                            <span className="approve-listing"><i className=""><FaCheck/></i></span>
                                     </div>
                                     <div className="listing-shot-caption">
                                         <h4>Art &amp; Design</h4>
                                         <p className="listing-location">Bishop Avenue, New York</p>
-                                        <span className="like-listing style-2"><i className="fa fa-heart-o" aria-hidden="true"></i></span>
+                                        <span className="like-listing style-2"><i className="" aria-hidden="true"><FaRegHeart/></i></span>
                                     </div>
                                 </a>
                                 <div className="listing-shot-info">
                                     <div className="row extra">
                                         <div className="col-md-12">
                                             <div className="listing-detail-info">
-                                                <span><i className="fa fa-phone" aria-hidden="true"></i> 807-502-5867</span>
+                                                <span><i className="" aria-hidden="true"> <RiPhoneFill/></i> 807-502-5867</span>
                                                 <span><i className="fa fa-globe" aria-hidden="true"></i> www.mysitelink.com</span>
                                             </div>
                                         </div>
@@ -97,7 +99,7 @@ const listings = () => {
                                 <a href="listing-detail.html">
                                     <div className="listing-shot-img">
                                         <img src="https://codeminifier.com/listing-hub/listing/assets/img/category/documentry.jpg" className="img-responsive" alt="" />
-                                            <span className="approve-listing"><i className="fa fa-check"></i></span>
+                                            <span className="approve-listing"><i className=""><FaCheck/></i></span>
                                     </div>
                                     <div className="listing-shot-caption">
                                         <h4>Documentary</h4>
