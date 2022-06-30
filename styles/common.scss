@@ -478,3 +478,14 @@
     }
   }
 }
+.account-container {
+  .account-sidebar {
+    width: 280px;
+    flex: 0 0 auto;
+    height: max-content;
+    position: sticky;
+    top: 115px;
+  }
+  .account-content {
+  }
+}

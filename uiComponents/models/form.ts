@@ -2,7 +2,7 @@ import React from "react";
 
 export interface IFormInput {
     defaultValue?: string;
-    label?: string;
+    label?: string | React.ReactNode;
     helpText?: string;
     placeholder?: string;
     wrapperClasses?: string;

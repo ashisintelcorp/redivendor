@@ -36,7 +36,7 @@ export const ListingCards:React.FC<{
                 openCss += row.isOpen ? "now-open" : ""
                 return <div key={index} className="col-lg-4 col-md-6 col-sm-12 pb-4">
                 <div className="listing-shot grid-style">
-                    <div className={openCss}>Now {row.isOpen ? "Open" : "Closed"}</div>
+                    <div className={openCss}> {row.isOpen ? "Now Open" : "Closed"}</div>
                     <a href="listing-detail.html">
                         <div className="listing-shot-img">
                             <img src={row.avatar} className="img-responsive" alt="" />
