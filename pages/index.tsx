@@ -13,9 +13,6 @@ import { FaHotel } from 'react-icons/fa'
 import { AiFillShopping } from 'react-icons/ai';
 import { RiCommandFill, RiMailSendLine, RiPulseFill, RiRoadMapLine } from 'react-icons/ri'
 
-
-
-
 const Home: NextPage = () => {
   const listArray = [
     { name: "Restaurant", no: 16, icon: <BiRestaurant size={30} /> },
