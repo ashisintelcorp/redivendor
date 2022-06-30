@@ -24,21 +24,17 @@ export const Login: React.FC = () => {
                             <div className="dark-form-header d-flex flex-wrap p-3">
                                 <div className="icon"><img src="/images/login.png" alt="" /></div>
                                 <div className="text d-flex align-items-start flex-column justify-content-center">
-                                    <div className="title"><strong> User Details</strong></div>
+                                    <div className="title"><strong> User Registartion</strong></div>
                                 </div>
                             </div>
                             <div className="dark-form-fields text-dark p-3">
-                                <FormInput  wrapperClasses="form-group" label="Name" placeholder="Enter your business name" type="text" register={undefined} />
+                                <FormInput  wrapperClasses="form-group" label="Name" placeholder="Enter your  name" type="text" register={undefined} />
                               
-                                <FormInput  wrapperClasses="form-group" label="Website" placeholder="Enter your Website" type="text" register={undefined} />
+                                <FormInput  wrapperClasses="form-group" label="Website" placeholder="Enter your website" type="text" register={undefined} />
                                 <FormInput wrapperClasses="form-group" label="Email ID" placeholder="Enter your email" type="email" register={undefined} />
                                 <FormInput wrapperClasses="form-group" label="Phone" placeholder="Enter your number" register={undefined} />
-                                <FormInput wrapperClasses="form-group" label="Address" placeholder="Enter your address" type="text" register={undefined} />
-                                <FormInput wrapperClasses="form-group" label="Locality," placeholder="Enter your nearby locality" type="text" register={undefined} />
-                                <FormInput wrapperClasses="form-group" label="City" placeholder="Enter your City" type="text" register={undefined} />
-                                <FormInput wrapperClasses="form-group" label="State" placeholder="Enter your State" type="text" register={undefined} />
-                                <FormInput wrapperClasses="form-group" label="Country" placeholder="Enter your Country" type="text" register={undefined} />
-                                <FormInput wrapperClasses="form-group" label="Zip" placeholder="Enter your zip" type="number" register={undefined} />
+                                <FormInput wrapperClasses="form-group" label="Password" placeholder="Enter your password" register={undefined} />
+                               
                             </div>
 
                             <div className="bg-white d-flex align-items-center justify-content-between p-3">
