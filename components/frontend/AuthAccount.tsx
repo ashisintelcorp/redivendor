@@ -53,7 +53,9 @@ const PageWrapper: React.FC<{
                         <Link href={item.url} passHref ><a className="d-block px-3 py-1">{item.name}</a></Link>
                     </li>)}
                     <li className="list-unstyled">
-                        <div onClick={() => logout()} className="d-block px-3 py-1 cursor-pointer">Logout</div>
+                        <div onClick={() => {
+                            // logout()
+                        }} className="d-block px-3 py-1 cursor-pointer">Logout</div>
                     </li>
                 </ul>
             </div>
@@ -76,25 +78,23 @@ export const AuthAccount: React.FC<{
 
     const [isLoaded, setIsLoaded] = useState(false)
 
-    const loginUrl = () => '/login/' + (role == IUserState.EnumUserRoles.OWNER ? IUserState.EnumUserRoles.OWNER.toLowerCase() : role == IUserState.EnumUserRoles.DRIVER ? IUserState.EnumUserRoles.DRIVER.toLowerCase() : IUserState.EnumUserRoles.USER.toLowerCase())
+    // const loginUrl = () => '/login/' + (role == IUserState.EnumUserRoles.OWNER ? IUserState.EnumUserRoles.OWNER.toLowerCase() : role == IUserState.EnumUserRoles.DRIVER ? IUserState.EnumUserRoles.DRIVER.toLowerCase() : IUserState.EnumUserRoles.USER.toLowerCase())
 
-    useEffect(() => {
-        setIsLoaded(true)
-        if (!token) router.push(loginUrl())
-    }, [])
+    // useEffect(() => {
+    //     setIsLoaded(true)
+    //     if (!token) router.push(loginUrl())
+    // }, [])
 
 
     return <>
-        {isLoaded && <PageWrapper data={{
+        {<PageWrapper data={{
             name: "Ashish Kumar",
             email: "ash@ongmail.com",
-            mobile:"15151555",
-            links: Array<{
-            name: "fb",
-            url:"fb.com"
-            }>
-            
-
+            mobile: "15151555",
+            links: [
+                { name: "fb", url: "fb.com" },
+            ],
+            loginUrl: ""
             // name: (role === IUserState.EnumUserRoles.OWNER ? ownerProfile?.vchOwnerName : role === IUserState.EnumUserRoles.DRIVER ? driverProfile?.vchDriverName : role === IUserState.EnumUserRoles.USER ? userProfile?.vchUserFname + ' ' + userProfile?.vchUserLname : '') || '',
             // email: (role === IUserState.EnumUserRoles.OWNER ? ownerProfile?.vchOwnerEmail : role === IUserState.EnumUserRoles.DRIVER ? driverProfile?.vchDriverEmail : role === IUserState.EnumUserRoles.USER ? userProfile?.vchUserEmail : '') || '',
             // mobile: (role === IUserState.EnumUserRoles.OWNER ? ownerProfile?.vchOwnerMob : role === IUserState.EnumUserRoles.DRIVER ? driverProfile?.vchDriverMob1 : role === IUserState.EnumUserRoles.USER ? userProfile?.vchUserMob : '') || '',
