@@ -38,7 +38,7 @@ export const Login: React.FC = () => {
                             </div>
                         </form>
 
-                        <Link href='/register/user' passHref ><a className="text-dark font-weight-bold text-center d-block mt-4">Don&apos;t have an account? Register now!</a></Link>
+                        <Link href='/user-reg' passHref ><a className="text-dark font-weight-bold text-center d-block mt-4">Don&apos;t have an account? Register now!</a></Link>
                         <div className="text-center">
                             Login as: <Link href='/login/vendor-login' passHref ><a className="text-danger">Vendor</a></Link> | <Link href='/login/user-login' passHref ><a className="text-danger">User</a></Link>
                         </div>

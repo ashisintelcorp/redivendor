@@ -35,7 +35,7 @@ const Header = () => {
                                 <button><AiOutlineUser size={24} /></button>
                                 <ul>
                                     <li><Link href={'/login/user-login'}>Login</Link></li>
-                                    <li><Link href={'/vendor-details'}>Create new account</Link></li>
+                                    <li><Link href={'/user-reg'}>Create new account</Link></li>
                                 </ul>
                             </div>
                             <div className="roundbtn">

@@ -92,7 +92,11 @@ export const AuthAccount: React.FC<{
             email: "ash@ongmail.com",
             mobile: "15151555",
             links: [
-                { name: "fb", url: "fb.com" },
+                { name: "My profile", url: "/listings" },
+                { name: "Listings", url: "/listings" },
+                { name: "Add Listings", url: "/add-listing" },
+
+
             ],
             loginUrl: ""
             // name: (role === IUserState.EnumUserRoles.OWNER ? ownerProfile?.vchOwnerName : role === IUserState.EnumUserRoles.DRIVER ? driverProfile?.vchDriverName : role === IUserState.EnumUserRoles.USER ? userProfile?.vchUserFname + ' ' + userProfile?.vchUserLname : '') || '',

@@ -30,7 +30,6 @@ export const Login: React.FC = () => {
                             <div className="dark-form-fields text-dark p-3">
                                 <FormInput  wrapperClasses="form-group" label="Name" placeholder="Enter your  name" type="text" register={undefined} />
                               
-                                <FormInput  wrapperClasses="form-group" label="Website" placeholder="Enter your website" type="text" register={undefined} />
                                 <FormInput wrapperClasses="form-group" label="Email ID" placeholder="Enter your email" type="email" register={undefined} />
                                 <FormInput wrapperClasses="form-group" label="Phone" placeholder="Enter your number" register={undefined} />
                                 <FormInput wrapperClasses="form-group" label="Password" placeholder="Enter your password" register={undefined} />
@@ -42,10 +41,10 @@ export const Login: React.FC = () => {
                             </div>
                         </form>
 
-                        <Link href='/register/user' passHref ><a className="text-dark font-weight-bold text-center d-block mt-4">Don&apos;t have an account? Register now!</a></Link>
-                        <div className="text-center">
+                        <Link href='/login/user-login' passHref ><a className="text-dark font-weight-bold text-center d-block mt-4">I have an account? Login now!</a></Link>
+                        {/* <div className="text-center">
                             Login as: <Link href='/vendor-details' passHref ><a className="text-danger">Vendor</a></Link> | <Link href='/user-details' passHref ><a className="text-danger">User</a></Link>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="col-md-3"></div>
                 </div>
