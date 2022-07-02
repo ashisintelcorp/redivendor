@@ -1,6 +1,7 @@
 import { isFailure, isSuccess } from "@devexperts/remote-data-ts"
 import { appName, openingHours } from "app-config"
 import AuthAccount from "components/frontend/AuthAccount"
+import { IAddListingApiRequest } from "models/addListing"
 // import { IAddTaxiApiRequest } from "models/owner/vehicle"
 import Head from "next/head"
 import Link from "next/link"
@@ -12,42 +13,6 @@ import { toast } from "react-toastify"
 // import { useAppSelector } from "state/hooks"
 // import { CarReduxStore } from "state/slice/car.slice"
 import { FormButton, FormInput, FormSelect, FormTextarea } from "uiComponents/Form"
- 
-interface IVehicleFeatures {
-    intTaxiSeater: number;
-    tinTaxiMusic: number;
-    tinTaxiAc: number;
-    intTaxiLugSpace: number;
-    intTaxiAirbags: number;
-}
-interface IVehiclePricing {
-    intPricingPkg1: number;
-    intPricingPkg2: number;
-    intPricingPkg3: number;
-    intPricingPkg4: number;
-    intPricingPkg5: number;
-    intPricingPkg6: number;
-    intPricingExtraKm: number;
-    intPricingOutstationKm: number;
-    intPricingExtraHrs: number;
-    intPricingCommission: number;
-}
-interface IVehicleDetails {
-    vchTaxiNo: string;
-    vchTaxiImg: string;
-    intVehSubType?: number;
-    vchVehSubTypeName?: string;
-    intTaxiModel: number;
-    vchVehModelName?: string;
-    intDetailsFuel: number;
-    vchDetailsChesis: string;
-    vchDetailsColor: string;
-}
-interface IAddTaxiApiRequest {
-    details: IVehicleDetails;
-    features: IVehicleFeatures;
-    pricing: IVehiclePricing;
-}
 
 export const AddVehiclePage: React.FC = () => {
     const router = useRouter()
@@ -59,15 +24,15 @@ export const AddVehiclePage: React.FC = () => {
         setValue,
         handleSubmit,
         watch
-    } = useForm<IAddTaxiApiRequest>({
+    } = useForm<IAddListingApiRequest>({
         defaultValues: {}
     });
     // const carTypes = useAppSelector(CarReduxStore.selectTypes)
     const [isProcessing, setIsProcessing] = useState(false)
 
-    useEffect(() => {
-        setValue('details.intTaxiModel', 0)
-    }, [getValues('details.intVehSubType')])
+    /* useEffect(() => {
+        setValue('generalInfo.intTaxiModel', 0)
+    }, [getValues('details.intVehSubType')]) */
 
 
     // const handleForm = async (data: IAddTaxiApiRequest) => {
@@ -100,37 +65,37 @@ export const AddVehiclePage: React.FC = () => {
             >
                 <div className="white-card">
                     <div className="row">
-                        <FormInput register={{ ...register('details.vchTaxiNo', { required: 'Car no. is required!' }) }} error={errors?.details?.vchTaxiNo?.message} wrapperClasses="form-group col-md-4" label="Business name" placeholder="Enter your business name" />
-                        <FormInput register={{ ...register('details.vchTaxiNo', { required: 'Car no. is required!' }) }} error={errors?.details?.vchTaxiNo?.message} wrapperClasses="form-group col-md-4" label="Business Link" placeholder="Enter your business Link" />
-                        <FormSelect  wrapperClasses="form-group col-md-4" label="Category" register={undefined}>
+                        <FormInput register={{ ...register('generalInfo.vchBusinessName', { required: 'Business Name is required' }) }} error={errors?.generalInfo?.vchBusinessName?.message} wrapperClasses="form-group col-md-4" label="Business name" placeholder="Enter your business name" />
+                        <FormInput register={{ ...register('generalInfo.vchBusinessLink')}} wrapperClasses="form-group col-md-4" label="Business Link" placeholder="Enter your business Link" />
+                        <FormSelect  wrapperClasses="form-group col-md-4" label="Category" register={{ ...register('generalInfo.tinCategory', { required: 'Category is required' }) }} error={errors?.generalInfo?.tinCategory?.message}>
                             <option value="0">-- SELECT --</option>
                             <option value="0">-- SELECT --</option>
                             <option value="0">-- SELECT --</option>
                             <option value="0">-- SELECT --</option>                            
                         </FormSelect>
-                        <FormInput register={{ ...register('details.vchTaxiNo', { required: 'Car no. is required!' }) }} error={errors?.details?.vchTaxiNo?.message} wrapperClasses="form-group col-md-4" label="Business Website" placeholder="Website" />
+                        <FormInput register={{ ...register('generalInfo.vchBusinessWebsite', { required: 'Business Website is required!' }) }} error={errors?.generalInfo?.vchBusinessWebsite?.message} wrapperClasses="form-group col-md-4" label="Business Website" placeholder="Website" />
 
                     </div>
                 </div>
                 <h5>Add Location</h5>
                 <div className="white-card">
                     <div className="row">
-                        <FormInput register={{ ...register("details.vchDetailsChesis", { required: 'Chesis no. is required!' }) }} error={errors?.details?.vchDetailsChesis?.message} wrapperClasses="form-group col-md-4" label="Address" placeholder="" />
-                        <FormInput register={{ ...register("details.vchDetailsColor", { required: 'Color is required!' }) }} error={errors?.details?.vchDetailsColor?.message} wrapperClasses="form-group col-md-4" label="Locality" placeholder="" />
-                        <FormInput register={{ ...register("details.vchDetailsColor", { required: 'Color is required!' }) }} error={errors?.details?.vchDetailsColor?.message} wrapperClasses="form-group col-md-4" label="City" placeholder="" />
-                        <FormInput register={{ ...register("details.vchDetailsColor", { required: 'Color is required!' }) }} error={errors?.details?.vchDetailsColor?.message} wrapperClasses="form-group col-md-4" label="State" placeholder="" />
-                        <FormInput register={{ ...register("details.vchDetailsColor", { required: 'Color is required!' }) }} error={errors?.details?.vchDetailsColor?.message} wrapperClasses="form-group col-md-4" label="Zip" placeholder="" />
+                        <FormInput register={{ ...register("location.vchAddress", { required: 'Address is required!' }) }} error={errors?.location?.vchAddress?.message} wrapperClasses="form-group col-md-4" label="Address" placeholder="" />
+                        <FormInput register={{ ...register("location.vchLocality", { required: 'Locality is required!' }) }} error={errors?.location?.vchLocality?.message} wrapperClasses="form-group col-md-4" label="Locality" placeholder="" />
+                        <FormInput register={{ ...register("location.intCity", { required: 'City is required!' }) }} error={errors?.location?.intCity?.message} wrapperClasses="form-group col-md-4" label="City" placeholder="" />
+                        <FormInput register={{ ...register("location.intState", { required: 'State is required!' }) }} error={errors?.location?.intState?.message} wrapperClasses="form-group col-md-4" label="State" placeholder="" />
+                        <FormInput register={{ ...register("location.vchZip") }} wrapperClasses="form-group col-md-4" label="Zip" placeholder="" />
 
                     </div>
                 </div>
                 <h5>Full Details</h5>
                 <div className="white-card">
                     <div className="row">
-                        <FormInput register={{ ...register("features.intTaxiSeater", { required: 'Seater is required!' }) }} error={errors?.features?.intTaxiSeater?.message} label="Owner name" wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("features.intTaxiLugSpace", { required: 'Luggage space is required!' }) }} error={errors?.features?.intTaxiLugSpace?.message} label="Email" wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("features.intTaxiAirbags", { required: 'Air bags is required!' }) }} error={errors?.features?.intTaxiAirbags?.message} label="Phone" wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("features.intTaxiAirbags", { required: 'Air bags is required!' }) }} error={errors?.features?.intTaxiAirbags?.message} label="social" wrapperClasses="form-group col-md-4" />
-                        <FormTextarea register={{ ...register("features.intTaxiAirbags", { required: 'Air bags is required!' }) }} error={errors?.features?.intTaxiAirbags?.message} label="Description" wrapperClasses="form-group col-md-12" />
+                        <FormInput register={undefined} label="Owner name" wrapperClasses="form-group col-md-4" />
+                        <FormInput register={undefined} label="Email" wrapperClasses="form-group col-md-4" />
+                        <FormInput register={undefined} label="Phone" wrapperClasses="form-group col-md-4" />
+                        <FormInput register={undefined} label="social" wrapperClasses="form-group col-md-4" />
+                        <FormTextarea register={undefined} label="Description" wrapperClasses="form-group col-md-12" />
 
 
                     </div>
@@ -139,22 +104,22 @@ export const AddVehiclePage: React.FC = () => {
                 <div className="white-card">
                     <div className="row">
 
-                        <FormInput register={{ ...register("pricing.intPricingPkg1", { required: 'Package 1 is required!' }) }} error={errors?.pricing?.intPricingPkg1?.message} label={
+                        <FormInput register={{ ...register("openingHours.monday", { required: 'Package 1 is required!' }) }} error={errors?.openingHours?.monday?.message} label={
                             <>Monday<span className="text-muted"><small>({openingHours.filter(item => item.id == 1)[0].name})</small></span></>
                         } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg2", { required: 'Package 2 is required!' }) }} error={errors?.pricing?.intPricingPkg2?.message} label={
+                        <FormInput register={{ ...register("openingHours.tuesday", { required: 'Package 2 is required!' }) }} error={errors?.openingHours?.tuesday?.message} label={
                             <>Tuesday <span className="text-muted"><small>({openingHours.filter(item => item.id == 2)[0].name})</small></span></>
                         } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg3", { required: 'Package 3 is required!' }) }} error={errors?.pricing?.intPricingPkg3?.message} label={
+                        <FormInput register={{ ...register("openingHours.wednessday", { required: 'Package 3 is required!' }) }} error={errors?.openingHours?.wednessday?.message} label={
                             <>Wednesday <span className="text-muted"><small>({openingHours.filter(item => item.id == 3)[0].name})</small></span></>
                         } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg4", { required: 'Package 4 is required!' }) }} error={errors?.pricing?.intPricingPkg4?.message} label={
+                        <FormInput register={{ ...register("openingHours.thursday", { required: 'Package 4 is required!' }) }} error={errors?.openingHours?.thursday?.message} label={
                             <>Thursday <span className="text-muted"><small>({openingHours.filter(item => item.id == 4)[0].name})</small></span></>
                         } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg5", { required: 'Package 5 is required!' }) }} error={errors?.pricing?.intPricingPkg5?.message} label={
+                        <FormInput register={{ ...register("openingHours.friday", { required: 'Package 5 is required!' }) }} error={errors?.openingHours?.friday?.message} label={
                             <>Friday <span className="text-muted"><small>({openingHours.filter(item => item.id == 5)[0].name})</small></span></>
                         } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg6", { required: 'Package 6 is required!' }) }} error={errors?.pricing?.intPricingPkg6?.message} label={
+                        <FormInput register={{ ...register("openingHours.saturday", { required: 'Package 6 is required!' }) }} error={errors?.openingHours?.saturday?.message} label={
                             <>Saturday <span className="text-muted"><small>({openingHours.filter(item => item.id == 6)[0].name})</small></span></>
                         } wrapperClasses="form-group col-md-4" />
                     </div>
