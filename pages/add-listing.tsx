@@ -100,37 +100,37 @@ export const AddVehiclePage: React.FC = () => {
             >
                 <div className="white-card">
                     <div className="row">
-                        <FormInput register={{ ...register('details.vchTaxiNo', { required: 'Car no. is required!' }) }} error={errors?.details?.vchTaxiNo?.message} wrapperClasses="form-group col-md-4" label="Business name" placeholder="Enter your business name" />
-                        <FormInput register={{ ...register('details.vchTaxiNo', { required: 'Car no. is required!' }) }} error={errors?.details?.vchTaxiNo?.message} wrapperClasses="form-group col-md-4" label="Business Link" placeholder="Enter your business Link" />
+                        <FormInput wrapperClasses="form-group col-md-4" label="Business name" placeholder="Enter your business name" register={undefined} />
+                        <FormInput wrapperClasses="form-group col-md-4" label="Business Link" placeholder="Enter your business Link" register={undefined} />
                         <FormSelect  wrapperClasses="form-group col-md-4" label="Category" register={undefined}>
                             <option value="0">-- SELECT --</option>
                             <option value="0">-- SELECT --</option>
                             <option value="0">-- SELECT --</option>
                             <option value="0">-- SELECT --</option>                            
                         </FormSelect>
-                        <FormInput register={{ ...register('details.vchTaxiNo', { required: 'Car no. is required!' }) }} error={errors?.details?.vchTaxiNo?.message} wrapperClasses="form-group col-md-4" label="Business Website" placeholder="Website" />
+                        <FormInput wrapperClasses="form-group col-md-4" label="Business Website" placeholder="Website" register={undefined} />
 
                     </div>
                 </div>
                 <h5>Add Location</h5>
                 <div className="white-card">
                     <div className="row">
-                        <FormInput register={{ ...register("details.vchDetailsChesis", { required: 'Chesis no. is required!' }) }} error={errors?.details?.vchDetailsChesis?.message} wrapperClasses="form-group col-md-4" label="Address" placeholder="" />
-                        <FormInput register={{ ...register("details.vchDetailsColor", { required: 'Color is required!' }) }} error={errors?.details?.vchDetailsColor?.message} wrapperClasses="form-group col-md-4" label="Locality" placeholder="" />
-                        <FormInput register={{ ...register("details.vchDetailsColor", { required: 'Color is required!' }) }} error={errors?.details?.vchDetailsColor?.message} wrapperClasses="form-group col-md-4" label="City" placeholder="" />
-                        <FormInput register={{ ...register("details.vchDetailsColor", { required: 'Color is required!' }) }} error={errors?.details?.vchDetailsColor?.message} wrapperClasses="form-group col-md-4" label="State" placeholder="" />
-                        <FormInput register={{ ...register("details.vchDetailsColor", { required: 'Color is required!' }) }} error={errors?.details?.vchDetailsColor?.message} wrapperClasses="form-group col-md-4" label="Zip" placeholder="" />
+                        <FormInput  wrapperClasses="form-group col-md-4" label="Address" placeholder="" register={undefined} />
+                        <FormInput  wrapperClasses="form-group col-md-4" label="Locality" placeholder="" register={undefined} />
+                        <FormInput  wrapperClasses="form-group col-md-4" label="City" placeholder="" register={undefined} />
+                        <FormInput  wrapperClasses="form-group col-md-4" label="State" placeholder="" register={undefined} />
+                        <FormInput  wrapperClasses="form-group col-md-4" label="Zip" placeholder="" register={undefined} />
 
                     </div>
                 </div>
                 <h5>Full Details</h5>
                 <div className="white-card">
                     <div className="row">
-                        <FormInput register={{ ...register("features.intTaxiSeater", { required: 'Seater is required!' }) }} error={errors?.features?.intTaxiSeater?.message} label="Owner name" wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("features.intTaxiLugSpace", { required: 'Luggage space is required!' }) }} error={errors?.features?.intTaxiLugSpace?.message} label="Email" wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("features.intTaxiAirbags", { required: 'Air bags is required!' }) }} error={errors?.features?.intTaxiAirbags?.message} label="Phone" wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("features.intTaxiAirbags", { required: 'Air bags is required!' }) }} error={errors?.features?.intTaxiAirbags?.message} label="social" wrapperClasses="form-group col-md-4" />
-                        <FormTextarea register={{ ...register("features.intTaxiAirbags", { required: 'Air bags is required!' }) }} error={errors?.features?.intTaxiAirbags?.message} label="Description" wrapperClasses="form-group col-md-12" />
+                        <FormInput  label="Owner name" wrapperClasses="form-group col-md-4" register={undefined} />
+                        <FormInput label="Email" wrapperClasses="form-group col-md-4" register={undefined} />
+                        <FormInput  label="Phone" wrapperClasses="form-group col-md-4" register={undefined} />
+                        <FormInput  label="social" wrapperClasses="form-group col-md-4" register={undefined} />
+                        <FormTextarea  label="Description" wrapperClasses="form-group col-md-12" register={undefined} />
 
 
                     </div>
@@ -139,24 +139,12 @@ export const AddVehiclePage: React.FC = () => {
                 <div className="white-card">
                     <div className="row">
 
-                        <FormInput register={{ ...register("pricing.intPricingPkg1", { required: 'Package 1 is required!' }) }} error={errors?.pricing?.intPricingPkg1?.message} label={
-                            <>Monday<span className="text-muted"><small>({openingHours.filter(item => item.id == 1)[0].name})</small></span></>
-                        } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg2", { required: 'Package 2 is required!' }) }} error={errors?.pricing?.intPricingPkg2?.message} label={
-                            <>Tuesday <span className="text-muted"><small>({openingHours.filter(item => item.id == 2)[0].name})</small></span></>
-                        } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg3", { required: 'Package 3 is required!' }) }} error={errors?.pricing?.intPricingPkg3?.message} label={
-                            <>Wednesday <span className="text-muted"><small>({openingHours.filter(item => item.id == 3)[0].name})</small></span></>
-                        } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg4", { required: 'Package 4 is required!' }) }} error={errors?.pricing?.intPricingPkg4?.message} label={
-                            <>Thursday <span className="text-muted"><small>({openingHours.filter(item => item.id == 4)[0].name})</small></span></>
-                        } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg5", { required: 'Package 5 is required!' }) }} error={errors?.pricing?.intPricingPkg5?.message} label={
-                            <>Friday <span className="text-muted"><small>({openingHours.filter(item => item.id == 5)[0].name})</small></span></>
-                        } wrapperClasses="form-group col-md-4" />
-                        <FormInput register={{ ...register("pricing.intPricingPkg6", { required: 'Package 6 is required!' }) }} error={errors?.pricing?.intPricingPkg6?.message} label={
-                            <>Saturday <span className="text-muted"><small>({openingHours.filter(item => item.id == 6)[0].name})</small></span></>
-                        } wrapperClasses="form-group col-md-4" />
+                        <FormInput  label={<>Monday<span className="text-muted"><small>({openingHours.filter(item => item.id == 1)[0].name})</small></span></>} wrapperClasses="form-group col-md-4" register={undefined} />
+                        <FormInput  label={<>Tuesday <span className="text-muted"><small>({openingHours.filter(item => item.id == 2)[0].name})</small></span></>} wrapperClasses="form-group col-md-4" register={undefined} />
+                        <FormInput label={<>Wednesday <span className="text-muted"><small>({openingHours.filter(item => item.id == 3)[0].name})</small></span></>} wrapperClasses="form-group col-md-4" register={undefined} />
+                        <FormInput  label={<>Thursday <span className="text-muted"><small>({openingHours.filter(item => item.id == 4)[0].name})</small></span></>} wrapperClasses="form-group col-md-4" register={undefined} />
+                        <FormInput label={<>Friday <span className="text-muted"><small>({openingHours.filter(item => item.id == 5)[0].name})</small></span></>} wrapperClasses="form-group col-md-4" register={undefined} />
+                        <FormInput label={<>Saturday <span className="text-muted"><small>({openingHours.filter(item => item.id == 6)[0].name})</small></span></>} wrapperClasses="form-group col-md-4" register={undefined} />
                     </div>
                 </div>
                 <FormButton disabled={isProcessing} className="btn btn-primary text-uppercase py-2 px-5" text="SUBMIT" />
