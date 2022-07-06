@@ -92,7 +92,7 @@ export const AuthAccount: React.FC<{
             email: "ash@ongmail.com",
             mobile: "15151555",
             links: [
-                { name: "My profile", url: "/listings" },
+                { name: "My profile", url: "/account/vendor/vendor-profile" },
                 { name: "Listings", url: "/listings" },
                 { name: "Add Listings", url: "/add-listing" },
 
