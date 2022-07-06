@@ -1,0 +1,377 @@
+.r-drivers-part {
+    .r-driver-detail {
+        
+        .r-head {
+            span {
+                font-size: 14px;
+                color: #aaa;
+                display: block;
+                font-weight: 400;
+            }
+
+            font-size: 30px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 40px;
+        }
+    }
+
+    .r-driver-text {
+        font-size: 16px;
+        color: #333;
+        line-height: 28px;
+        padding-bottom: 60px;
+    }
+
+    .r-driver-icon {
+        padding-bottom: 35px;
+        border-bottom: solid 1px #ccc;
+        color: #bdbdbd;
+        float: left;
+
+        ul {
+            li {
+                display: inline-block;
+                font-size: 30px;
+                text-align: center;
+                margin-right: 35px;
+
+                span {
+                    display: block;
+                    font-size: 13px;
+                }
+                &:last-child {
+                    border: 0;
+                  }
+            }
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+    }
+
+    h3 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #333;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #0080d2;
+            margin-top: 18px;
+        }
+    }
+
+    position: relative;
+    background: #f8f8f8;
+    padding: 140px 0 70px;
+
+    &::after {
+
+        content: "";
+        display: inline-block;
+        background: url(https://jthemes.net/themes/html/royalcars/assets/images/driver-pic.png) left top no-repeat;
+        position: absolute;
+        left: 20%;
+        right: 0;
+        width: 673px;
+        bottom: 0;
+        top: 0;
+    }
+
+    .r-driver-box {
+        padding: 20px 15px;
+
+        .r-drivers {
+            &:hover {
+                box-shadow: 0 0 30px #ccc;
+                cursor: pointer;
+            }
+
+            .drivers-img {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+
+            img {
+                width: auto;
+            }
+
+            margin-bottom: 15px;
+            background: #fff;
+            position: relative;
+            // min-height: 240px;
+            transition: all 0.2s linear;
+
+            .r-drivers-detail {
+                padding-top: 40px;
+                position: relative;
+                z-index: 1;
+                max-width: 200px;
+
+                .name {
+                    border-left: solid 3px #0080d2;
+                    font-size: 18px;
+                    margin-bottom: 20px;
+                    line-height: 23px;
+                    font-weight: 500;
+                    color: #333;
+                    padding-left: 33px;
+                }
+
+                .text {
+                    font-size: 14px;
+                    color: #999;
+                    font-weight: 400;
+                    padding-left: 36px;
+                }
+
+                .icon {
+                    font-size: 18px;
+                    padding-left: 36px;
+                    padding-top: 40px;
+                    color: #ccc;
+                }
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .r-drivers {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+// get in touch section
+
+.r-get-in-touch {
+    background: url(/images/wp2752752.jpg) left top no-repeat;
+    background-repeat: no-repeat;
+    padding: 170px 0 150px;
+    background-size: cover;
+    position: relative;
+
+    .r-get-header {
+        h2 {
+            b {
+                font-weight: 700;
+            }
+
+            color:#fff  ;
+            padding-top: 20px;
+            font-weight: 300;
+            font-size: 40px;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            margin-block-start: 0.83em;
+            margin-block-end: 0.83em;
+        }
+
+        text-align: center;
+        font-size: 14px;
+        color: #fff;
+        letter-spacing: 3px;
+    }
+
+    .r-get-form {
+        max-width: 830px;
+        margin: 75px auto 0;
+        position: relative;
+        z-index: 99;
+
+        .text-center {
+            button {
+                background:#0080d2;
+                color: #fff;
+                width: 100%;
+                cursor: pointer;
+                line-height: 60px;
+                font-size: 14px;
+                font-weight: 700;
+                padding: 0;
+            }
+
+            padding-top: 20px;
+            margin: auto;
+            max-width: 360px;
+            clear: both;
+            width: 100%;
+        }
+    }
+
+    .form-group {
+        input {
+            float: left;
+            color: #fff;
+            width: 100%;
+            font-family: "Poppins", sans-serif;
+            line-height: 60px;
+            padding: 0 25px;
+            background: rgba(51, 51, 51, 0.9);
+            border: none;
+            margin-bottom: 10px;
+            touch-action: manipulation;
+        }
+
+        textarea {
+            float: left;
+            color: #fff;
+            width: 100%;
+            font-family: "Poppins", sans-serif;
+            line-height: 20px;
+            padding: 15px 25px;
+            background: rgba(51, 51, 51, 0.9);
+            border: none;
+            margin-bottom: 10px;
+            min-height: 170px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .r-get-in-touch {
+        .r-get-header h2 {
+            font-size: 32px;
+        }
+
+        .r-get-form {
+            margin-top: 50px;
+        }
+
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 1200) {
+    .r-get-in-touch {
+        .r-get-header:after {
+            font-size: 120px;
+        }
+
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 1400) {
+    .r-get-in-touch {
+        .r-get-header:after {
+            font-size: 150px;
+            top: -50px;
+        }
+
+        padding: 135px 0;
+    }
+}
+
+.r-counter-section {
+    margin-bottom: 95px;
+
+    .r-counter-box {
+        position: relative;
+        padding-left: 80px;
+
+        .r-counter-icon {
+            color:#fff;
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            img {
+                filter: invert(31%) sepia(90%) saturate(1300%) hue-rotate(179deg) brightness(90%) contrast(100%);
+                }
+        }
+
+        .r-counts {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333333;
+            line-height: 42px;
+        }
+
+        .r-count-title {
+            font-size: 14px;
+            color: #bbbbbb;
+            font-weight: 400;
+            display: block;
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .r-counter-section {
+        margin-bottom: 50px;
+    }
+}
+
+.r-insurance-part {
+
+    .r-insurance-box {
+        .icon {
+            margin-bottom: 10px;
+            img {
+                filter: invert(31%) sepia(90%) saturate(1300%) hue-rotate(179deg) brightness(90%) contrast(100%);
+                }
+        }
+
+        font-size: 13px;
+        background: #f8f8f8;
+        padding: 35px;
+        color: #000;
+        line-height: 20px;
+        cursor: pointer;
+        transition: all 0.2s linear;
+        margin-bottom: 15px;
+
+        .r-head {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 40px;
+        }
+
+        &:hover {
+            .icon {
+                margin-bottom: 10px;
+                color: #fff;
+
+                img {
+                    filter: brightness(0) invert(100%);
+                }
+            }
+
+            background: #0080d2;
+            color: #fff;
+        }
+
+    }
+}
+
+.r-video-msg-part {
+    padding: 65px 0;
+    .r-welcome-msg {
+        font-size: 16px;
+        color: #666666;
+    }
+    .r-video-right {
+        font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    padding: 0 0 0 30px;
+    border-left: solid 3px #0080d2;
+    }
+}

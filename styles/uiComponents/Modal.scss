@@ -1,0 +1,27 @@
+.modal-top {
+  background: #444;
+  position: relative;
+  .modal-header {
+    padding: 5px 20px;
+  }
+  .close {
+    position: absolute;
+    background: #fff;
+    color: #000;
+    opacity: 0.9;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 45px;
+    right: 5px;
+    border-radius: 100%;
+    cursor: pointer;
+    padding: 2px !important;
+  }
+  .modal-title {
+    font-size: 20px;
+    color: #fff;
+  }
+}
