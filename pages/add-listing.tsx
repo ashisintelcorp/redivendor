@@ -1,19 +1,15 @@
-import { isFailure, isSuccess } from "@devexperts/remote-data-ts"
 import { appName, openingHours } from "app-config"
 import AuthAccount from "components/frontend/AuthAccount"
 import { IAddListingApiRequest } from "models/addListing"
 // import { IAddTaxiApiRequest } from "models/owner/vehicle"
 import Head from "next/head"
-import Link from "next/link"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { toast } from "react-toastify"
 // import { OwnerService } from "services/user/owner.service"
 // import { useAppSelector } from "state/hooks"
 // import { CarReduxStore } from "state/slice/car.slice"
 import { FormButton, FormInput, FormSelect, FormTextarea } from "uiComponents/Form"
-import register from "./register"
 
 export const AddVehiclePage: React.FC = () => {
     const router = useRouter()

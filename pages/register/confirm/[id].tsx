@@ -1,4 +1,4 @@
-import { apiURL, appName, carPackages, email, fuel, phone } from "app-config"
+import { appName } from "app-config"
 import Head from "next/head"
 import Link from "next/link"
 import { GetServerSideProps } from "next"

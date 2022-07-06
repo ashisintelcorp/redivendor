@@ -1,9 +1,4 @@
-import { isFailure, isSuccess } from "@devexperts/remote-data-ts";
 import Header from "components/frontend/Header"
-import { useEffect } from "react";
-import { toast } from "react-toastify";
-import { CarService } from "services/car/index.service";
-import { CarDispatch } from "state/slice/car.slice";
 import Footer from "./Footer";
 
 interface IMainLayout {

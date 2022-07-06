@@ -80,7 +80,7 @@ const listingDetail = () => {
                                 <h5 className="card-header">24 Reviews</h5>
                                 <div className="card-body">
                                     <div className="container">
-                                        {listRatingArray.map((row, index) => <ListRating indexKey={index} ratings={row} />)}
+                                        {listRatingArray.map((row, index) => <div key={index}><ListRating indexKey={index} ratings={row} /></div>)}
                                     </div>
                                 </div>
                             </div>

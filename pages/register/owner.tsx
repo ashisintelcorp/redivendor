@@ -15,7 +15,7 @@ import { IUserRegisterApiRequest } from "models/user/register";
 import Swal from "sweetalert2";
 import { IOwnerRegisterApiRequest } from "models/owner/register";
 
-export const ownerRegister: React.FC = () => {
+export const OwnerRegister: React.FC = () => {
     const router = useRouter()
     const token = useAppSelector(UserReduxStore.selectAccessToken)
     const {
@@ -105,4 +105,4 @@ export const ownerRegister: React.FC = () => {
     </>
 }
 
-export default ownerRegister
+export default OwnerRegister

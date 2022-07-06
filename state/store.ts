@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { Action, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import { combineReducers } from "redux";
@@ -23,7 +23,8 @@ export const store = configureStore({
 });
 
 export type State = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
-/* export function dispatchOnCall(action) {
+export function dispatchOnCall(action: Action) {
     return () => store.dispatch(action);
-} */
+}

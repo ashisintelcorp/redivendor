@@ -15,7 +15,7 @@ export const ContactPage: React.FC = () => {
             <div className="container">
                 <div className="contact-page">
                     <div className="contact-info">
-                        <h3>Let's get in touch</h3>
+                        <h3>Let&apos;s get in touch</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum adipisci recusandae praesentium dicta!</p>
                         <div className="info">
                             <div className="d-flex">
