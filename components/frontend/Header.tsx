@@ -20,8 +20,6 @@ const Header = () => {
                             <li><Link href={'/contact'}>Contact</Link></li>
                             <li><Link href={'/listings'}>Listings</Link></li>
                             {/* <li><Link href={'/add-listing'}>Add Listings</Link></li> */}
-
-
                         </ul>
                         <div className="nav-two-section">
                             <div className="support">
@@ -35,7 +33,7 @@ const Header = () => {
                                 <button><AiOutlineUser size={24} /></button>
                                 <ul>
                                     <li><Link href={'/login/user-login'}>Login</Link></li>
-                                    <li><Link href={'/user-reg'}>Create new account</Link></li>
+                                    <li><Link href={'/register/user'}>Create new account</Link></li>
                                 </ul>
                             </div>
                             <div className="roundbtn">
